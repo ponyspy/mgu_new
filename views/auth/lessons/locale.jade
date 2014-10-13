@@ -1,0 +1,35 @@
+extends ../../layout
+
+block title
+	title ПЕРЕВОДЫ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/add.js')
+
+mixin checkTranslate(lang, field)
+	- var flag = field[lang].update >= field[def].update ? 'ok' : 'bad'
+	b= lang + ' - ' + flag
+
+block content
+	.form_block
+		a.back_link(href='/auth/edit/courses') < Назад
+		.title= 'ПЕРЕВОД ДЛЯ УРОКА: ' + course.title.ru.value.toUpperCase()
+	form(action="", method="post")
+		- var def = course.langs.def
+		.form_title Заголовок:
+		each lang in course.langs.languages
+			+checkTranslate(lang, course.title)
+			br
+			input.locale(type="text", name=lang + '[title]', class=lang, class=course.title[lang].update >= course.title[def].update ? 'locale_add' : 'locale_update', value=course.title[lang].value)
+			br
+		.form_title Описание:
+		each lang in course.langs.languages
+			+checkTranslate(lang, course.description)
+			br
+			textarea.locale(name=lang + '[description]', rows="8", class=lang, class=course.description[lang].update >= course.description[def].update ? 'locale_add' : 'locale_update')= course.description[lang].value
+			br
+		br
+		input(type='submit', value='отправить')

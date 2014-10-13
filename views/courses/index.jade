@@ -1,0 +1,20 @@
+extends ../layout
+
+block paths
+	- var s_title = 'курсы'
+
+block title
+	title КУРСЫ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/courses.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/courses.js' + version)
+
+
+block content
+	.courses
+		each course in courses
+			a.course(href='/courses/' + course._id)= course.title.ru.value
+			br

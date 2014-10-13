@@ -1,0 +1,23 @@
+extends ../../layout
+
+block title
+	title ДОБАВИТЬ УРОК
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/add.js')
+
+block content
+	.form_block
+		a.back_link(href='/auth') < Назад
+		.title РЕДАКТИРОВАТЬ УРОК
+		form(action="", method="post")
+			.form_title Заголовок:
+			input.locale(type="text", name="ru[title]", value=lesson.title.ru.value)
+			.form_title Описание:
+			textarea.locale(name="ru[description]", rows="8",)=lesson.description.ru.value
+			br
+			br
+			input(type='submit', value='отправить')

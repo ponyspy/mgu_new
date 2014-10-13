@@ -1,0 +1,45 @@
+extends ../../layout
+
+block title
+	title ДОБАВИТЬ КУРС
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/scripts/add.js')
+
+block content
+	.form_block
+		a.back_link(href='/auth') < Назад
+		.title РЕДАКТИРОВАТЬ КУРС
+		form(action="", method="post")
+			.form_title Заголовок:
+			input.locale(type="text", name="ru[title]", value=course.title.ru.value)
+			.form_title Описание:
+			textarea.locale(name="ru[description]", rows="8",)=course.description.ru.value
+			.form_title Список языков:
+			input(type='checkbox', name='langs[languages]', value='ru')
+			|Русский
+			input(type='checkbox', name='langs[languages]', value='en')
+			|Английский
+			input(type='checkbox', name='langs[languages]', value='fr')
+			|Французский
+			input(type='checkbox', name='langs[languages]', value='jp')
+			|Японский
+			input(type='checkbox', name='langs[languages]', value='ch')
+			|Китайский
+			.form_title Язык по умолчанию:
+			select(name='langs[def]')
+				option(value='ru') Русский
+				option(value='en') Английский
+				option(value='fr') Французский
+				option(value='jp') Японский
+				option(value='ch') Китайский
+			.form_title Видимость:
+			select(name='visible')
+				option(value='true') Да
+				option(value='false') Нет
+			br
+			br
+			input(type='submit', value='отправить')

@@ -1,0 +1,36 @@
+doctype html
+html
+	block paths
+	head
+		include header
+	body
+		//- include counters
+		.maket
+			.main_block
+				.header_block
+					.head_title_block
+						a.head_title(href='/') SPEAK-RUSSIAN
+						.head_s_title= s_title
+					.chat_block
+						.chat_item
+							.ch_name Вася:
+							.ch_post Супер Класс
+						.chat_item
+							.ch_name Сережа:
+							.ch_post Лалалалалал
+						.chat_post_block
+							.ch_name_create Вы:
+							input.ch_post_create(type='text', valu='...')
+					.menu_block
+						a(href='/login') Вход
+						br
+						a(href='/make') Составить курс
+						br
+						a(href='/stat') Статистика
+						br
+						a(href='/about') О программе
+				.content_block
+					block content
+				.content_under_block
+					block content_under
+				.footer_block

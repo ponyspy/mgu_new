@@ -1,0 +1,30 @@
+extends ../../layout
+
+block title
+	title СПИСОК КУРСОВ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/lists.js')
+
+block content
+	a.back_link(href='/auth') < Назад
+	.title СПИСОК КУРСОВ
+	br
+	.main_menu_block
+		a(href='/auth/courses/add') добавить курс
+		br
+		br
+		each course in courses
+			.course
+				a.rm_course(href='#', id=course._id)= 'удалить '
+				!=' | '
+				a(href='/auth/courses/locale/' + course._id) перевод
+				!=' | '
+				a(href='/auth/courses/edit/' + course._id)= course.title.ru.value
+				b= ' ---> '
+				a(href='/auth/lessons/courses/' + course._id) уроки
+				br
+				br

@@ -1,0 +1,59 @@
+extends ../layout
+
+block paths
+	- var s_title = course.title.ru.value
+
+block title
+	title КУРСЫ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/course.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/libs/js/raphael-min.js' + version)
+	script(type='text/javascript', src='/build/js/circles.js' + version)
+	script(type='text/javascript', src='/build/js/course.js' + version)
+
+
+block content
+	.lessons_navigator_block
+		.lessons_block
+			.circles
+				#lesson1.circle(l_title='Урок 1', l_fail='20', l_success='60')
+				#lesson2.circle(l_title='Урок 2', l_fail='35', l_success='25')
+				#lesson3.circle(l_title='Урок 3', l_fail='50', l_success='40')
+				#lesson4.circle(l_title='Урок 4', l_fail='15', l_success='65')
+				#lesson5.circle(l_title='Урок 5', l_fail='50', l_success='30')
+		.blocks_navigator_block
+			.block_item
+				.block_item_title Блок 1
+				.block_item_categorys
+					.category_item Сцена 1
+					.category_item Сцена 2
+				.block_item_exercises
+					.exercises_title Задания
+					.category_exercises_block
+						.exercise_item Задание 1
+						.exercise_item Задание 2
+						.exercise_item Задание 3
+						.exercise_item Задание 4
+						.exercise_item Задание 5
+						.exercise_item Задание 6
+					.category_exercises_block
+						.exercise_item Задание 7
+						.exercise_item Задание 8
+						.exercise_item Задание 9
+						.exercise_item Задание 10
+						.exercise_item Задание 11
+						.exercise_item Задание 12
+				.block_item_static
+					.static_title Страноведение
+					.static_item Страноведение 1
+					.static_item Страноведение 2
+					.static_item Страноведение 3
+					.static_item Страноведение 4
+				.block_item_test Тест
+		.dictionary_block
+			.dictionary_title Словарь:
+			.letters_block А Б В Г Д Е Ё Ж З И К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Я
+
