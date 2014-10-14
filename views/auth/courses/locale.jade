@@ -15,7 +15,7 @@ mixin checkTranslate(lang, field)
 
 block content
 	.form_block
-		a.back_link(href='/auth/edit/courses') < Назад
+		a.back_link(href='/auth/courses') < Назад
 		.title= 'ПЕРЕВОД ДЛЯ КУРСА: ' + course.title.ru.value.toUpperCase()
 	form(action="", method="post")
 		- var def = course.langs.def

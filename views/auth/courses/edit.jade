@@ -4,14 +4,14 @@ block title
 	title ДОБАВИТЬ КУРС
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
 
 block content_scripts
-	script(type='text/javascript', src='/scripts/add.js')
+	script(type='text/javascript', src='/build/js/add.js')
 
 block content
 	.form_block
-		a.back_link(href='/auth') < Назад
+		a.back_link(href='/auth/courses') < Назад
 		.title РЕДАКТИРОВАТЬ КУРС
 		form(action="", method="post")
 			.form_title Заголовок:

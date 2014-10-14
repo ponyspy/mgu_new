@@ -1,5 +1,5 @@
 var Course = require('../../models/main.js').Course;
-
+var async = require('async');
 
 // ------------------------
 // *** Add Course Block ***
