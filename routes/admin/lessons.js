@@ -1,27 +1,61 @@
-var Lesson = require('../../models/main.js').Lesson;
+var Course = require('../../models/main.js').Course;
 
 
 // ------------------------
-// *** Add Lesson Block ***
+// *** List Lessons Block ***
+// ------------------------
+
+
+exports.list = function(req, res) {
+	var id = req.params.id;
+
+	Course.findById(id).exec(function(err, course) {
+		res.render('auth/lessons', {course: course});
+	});
+}
+
+
+// ------------------------
+// *** Add Lessons Block ***
 // ------------------------
 
 
 exports.add = function(req, res) {
-	res.render('auth/lessons/add.jade');
+	var id = req.params.id;
+
+	Course.findById(id).exec(function(err, course) {
+		res.render('auth/lessons/add.jade', {course: course});
+	});
 }
 
 exports.add_form = function(req, res) {
 	var post = req.body;
-	var date_modify = new Date();
-	var lesson = new Lesson();
+	var id = req.params.id;
 
-	lesson.langs = post.langs;
-	lesson.title[post.langs.def].value = post.ru.title;
-	lesson.title[post.langs.def].update = date_modify;
-	lesson.description[post.langs.def].value = post.ru.description;
-	lesson.description[post.langs.def].update = date_modify;
+	Course.findById(id).exec(function(err, course) {
+		var lesson = {};
+		lesson.title = post.ru.title;
+		lesson.description = post.ru.description;
+		course.lessons.push(lesson);
 
-	lesson.save(function(err, lesson) {
-		res.redirect('back');
+		course.save(function(err, lesson) {
+			res.redirect('back');
+		});
+	});
+}
+
+
+// ------------------------
+// *** Edit Lessons Block ***
+// ------------------------
+
+
+exports.edit = function(req, res) {
+	var id = req.params.id;
+	var lesson_id = req.params.l_id;
+
+	Course.findById(id).exec(function(err, course) {
+		var lesson = course.lessons.id(lesson_id);
+		res.render('auth/lessons/edit.jade', {lesson: lesson});
 	});
 }

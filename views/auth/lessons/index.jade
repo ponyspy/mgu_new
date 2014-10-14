@@ -4,23 +4,26 @@ block title
 	title СПИСОК УРОКОВ
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
 
 block content_scripts
-	script(type='text/javascript', src='/scripts/lists.js')
+	script(type='text/javascript', src='/build/js/lists.js')
 
 block content
 	a.back_link(href='/auth') < Назад
 	.title СПИСОК УРОКОВ
 	br
 	.main_menu_block
-		each lesson in lessons
+		a(href='/auth/lessons/courses/' + course._id + '/add') добавить урок
+		br
+		br
+		each lesson in course.lessons
 			.lesson
 				a.rm_lesson(href='#', id=lesson._id)= 'удалить '
 				!=' | '
 				a(href='/auth/locale/lessons/' + lesson._id) перевод
 				!=' | '
-				a(href='/auth/edit/lessons/' + lesson._id)= lesson.title.ru.value
+				a(href='/auth/lessons/courses/' + course._id + '/edit/' + lesson._id)= lesson.title
 				b= ' ---> '
 				a(href='/auth/blocks/lessons/' + lesson._id) блоки
 				br

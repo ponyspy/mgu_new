@@ -158,19 +158,19 @@ app.route('/auth/courses/remove')
 
 
 // === Admin lessons Route
-app.route('/auth/lessons')
-	 // .get(checkAuth, admin_lessons.list);
+app.route('/auth/lessons/courses/:id')
+	 .get(checkAuth, admin_lessons.list);
 
 
 // === Admin @add lessons Route
-app.route('/auth/lessons/add')
-	 // .get(checkAuth, admin_lessons.add)
-	 // .post(checkAuth, admin_lessons.add_form);
+app.route('/auth/lessons/courses/:id/add')
+	 .get(checkAuth, admin_lessons.add)
+	 .post(checkAuth, admin_lessons.add_form);
 
 
 // === Admin @edit lessons Route
-app.route('/auth/lessons/edit/:id')
-	 // .get(checkAuth, admin_lessons.edit)
+app.route('/auth/lessons/courses/:id/edit/:l_id')
+	 .get(checkAuth, admin_lessons.edit)
 	 // .post(checkAuth, admin_lessons.edit_form);
 
 

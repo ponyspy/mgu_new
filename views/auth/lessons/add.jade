@@ -4,16 +4,16 @@ block title
 	title ДОБАВИТЬ УРОК
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/styles/add.css')
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
 
 block content_scripts
-	script(type='text/javascript', src='/scripts/add.js')
+	script(type='text/javascript', src='/build/js/add.js')
 
 block content
 	.form_block
 		a.back_link(href='/auth') < Назад
 		.title ДОБАВИТЬ УРОК
-		form(action="/auth/add/course", method="post")
+		form(action="", method="post")
 			.form_title Заголовок:
 			input.locale(type="text", name="ru[title]",)
 			.form_title Описание:
