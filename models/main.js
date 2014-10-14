@@ -19,20 +19,17 @@ var courseSchema = new Schema({
 			type: String,
 			locale: true
 		},
-		lessons: [{ type: Schema.Types.ObjectId, ref: 'Lesson' }],
+		lessons: [{
+			title: String,
+			description: String,
+			blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
+		}],
 		visible: Boolean,
 		authors: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 		langs: {
 			languages: [String],
 			def: String
 		},
-		date: {type: Date, default: Date.now},
-});
-
-var lessonSchema = new Schema({
-		title: String,
-		description: String,
-		blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
 		date: {type: Date, default: Date.now},
 });
 
@@ -93,6 +90,5 @@ courseSchema.plugin(mongooseLocale);
 
 module.exports.User = mongoose.model('User', userSchema);
 module.exports.Course = mongoose.model('Course', courseSchema);
-module.exports.Lesson = mongoose.model('Lesson', lessonSchema);
 module.exports.Block = mongoose.model('Block', blockSchema);
 module.exports.Exercise = mongoose.model('Exercise', exerciseSchema);
