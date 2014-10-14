@@ -59,3 +59,21 @@ exports.edit = function(req, res) {
 		res.render('auth/lessons/edit.jade', {lesson: lesson});
 	});
 }
+
+
+
+// ------------------------
+// *** Remove Lessons Block ***
+// ------------------------
+
+
+exports.remove = function(req, res) {
+	var id = req.body.id;
+
+	Course.findOne({'lessons._id': id}).exec(function(err, course) {
+		course.lessons.id(id).remove();
+		course.save(function(err, course) {
+			res.redirect('back');
+		});
+	});
+}

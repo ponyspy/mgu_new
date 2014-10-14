@@ -9,7 +9,7 @@ $(document).ready(function() {
 		}
 	}
 
-	$('.rm_news').on('click', {path:'/auth/news/remove', description: 'Удалить новость?'}, remove);
-	$('.rm_event').on('click', {path:'/auth/events/remove', description: 'Удалить событие?'}, remove);
+	$('.rm_course').on('click', {path:'/auth/courses/remove', description: 'Удалить курс?'}, remove);
+	$('.rm_lesson').on('click', {path:'/auth/lessons/remove', description: 'Удалить урок?'}, remove);
 
 });

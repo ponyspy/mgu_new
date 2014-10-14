@@ -182,7 +182,7 @@ app.route('/auth/lessons/locale/:id')
 
 // === Admin @remove lessons Route
 app.route('/auth/lessons/remove')
-	 // .post(checkAuth, admin_lessons.remove);
+	 .post(checkAuth, admin_lessons.remove);
 
 
 // ------------------------
