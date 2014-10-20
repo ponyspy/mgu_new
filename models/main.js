@@ -22,6 +22,7 @@ var courseSchema = new Schema({
 		lessons: [{
 			title: String,
 			description: String,
+			visible: Boolean,
 			blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
 		}],
 		visible: Boolean,
@@ -37,40 +38,41 @@ var blockSchema = new Schema({
 		title: String,
 		vocabulary: [String],
 		statistic: Boolean,
-		categorys: {
-			content: {
+		content: {
+			title: String,
+			content: [{
 				title: String,
-				content: [{
-					title: String,
-					body: String
-				}]
-			},
-			test: {
-				title: String,
-				exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
-			},
-			study: [{
-				title: String,
-				description: String,
-				exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
+				body: String
 			}]
 		},
+		test: {
+			title: String,
+			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
+		},
+		study: [{
+			title: String,
+			description: String,
+			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
+		}],
 		date: {type: Date, default: Date.now},
 });
 
 var exerciseSchema = new Schema({
-		type: {type: String, default: 'Base'},
 		task: String,
-		answer: Schema.Types.Mixed,
-		text: String,
-		strings: [String],
-		image: String,
-		audio: [String],
-		video: {
-			path: String,
-			subs: [String]
-		},
-		exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
+		columns: [{
+			blocks: [{
+				type: {type: String, default: 'Base'},
+				answer: Schema.Types.Mixed,
+				text: String,
+				strings: [String],
+				images: [String],
+				audios: [String],
+				video: {
+					path: String,
+					subs: [String]
+				}
+			}]
+		}],
 		date: {type: Date, default: Date.now},
 });
 

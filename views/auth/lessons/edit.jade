@@ -18,6 +18,10 @@ block content
 			input.locale(type="text", name="ru[title]", value=lesson.title)
 			.form_title Описание:
 			textarea.locale(name="ru[description]", rows="8",)=lesson.description
+			.form_title Видимость:
+			select(name='visible')
+				option(value='true', selected=lesson.visible) Да
+				option(value='false', selected=lesson.visible) Нет
 			br
 			br
 			input(type='submit', value='отправить')
