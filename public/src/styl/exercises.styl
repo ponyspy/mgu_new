@@ -1,23 +1,32 @@
+.content_block
+  overflow hidden
+
 .exercise_column
   width 640px
   float left
-  outline 1px solid red
+  // outline 1px solid red
 
 .exercise_block
   overflow hidden
-  margin-top 20px
+  margin-bottom 20px
+  padding 10px
+  // outline 1px solid green
 
 .exercise_task
   font 16pt/18pt 'PT Serif'
   font-weight bold
-  margin-top 10px
-  padding-left 10px
+  margin 10px
 
 // Image
 
-.ex_image {
-	width: 250px;
-	margin: 10px;
+.image img {
+	width: 60%;
+}
+
+// Text
+
+.text span {
+  width: 250px;
 }
 
 // Sort composit
@@ -32,17 +41,15 @@
   cursor move
   font-size 18pt
   border 2px solid grey
-  margin 5px
+  margin-right 10px
 
 
 // Drag Images
 
 .drag_words_block
-  width 450px
   min-height 30px
   border 1px solid grey
-  margin-top 20px
-  margin-left 10px
+  margin-top 10px
 
 .hover
   background-color yellow
@@ -53,22 +60,19 @@
 .word_item
   border 1px solid black
   display inline-block
+  margin 5px
   padding 5px
   cursor move
-  margin 5px
   font 14pt/16pt 'PT Serif'
 
 .drag_grid_block
-  width 450px
-  margin-top 20px
-  margin-left 10px
   border 1px solid grey
   overflow hidden
 
 .grid_item
-  width 100px
-  height 100px
-  margin 5px 5px 5px 5px
+  width 142px
+  height 142px
+  margin 5px
   border 1px solid grey
   float left
   background-size 60%
@@ -80,13 +84,6 @@
 
 
 .select_grid
-  width 450px
   border 1px solid grey
   overflow hidden
-
-.grid_item
-  width 100px
-  height 100px
-  margin 5px 5px 5px 5px
-  border 1px solid grey
-  float left
+  padding 0px
