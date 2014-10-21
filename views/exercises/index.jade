@@ -7,10 +7,11 @@ block title
 	title Упражнение
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/courses.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/exercises.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='/build/js/courses.js' + version)
+	script(type='text/javascript', src='/build/libs/js/jquery-ui.min.js' + version)
+	script(type='text/javascript', src='/build/js/exercises.js' + version)
 
 
 block content
@@ -18,22 +19,57 @@ block content
 	.exercise_columns_block
 		.exercise_column
 			.exercise_blocks_block
-				.exercise_block
-				.exercise_block
-				.exercise_block
-
-			.exercise_blocks_block
-				.exercise_block
-				.exercise_block
-				.exercise_block
-
-			.exercise_blocks_block
-				.exercise_block
-				.exercise_block
-				.exercise_block
+				.exercise_block(class='image')
+					img.ex_image(src='images/01.jpg')
+				.exercise_block(class='text')
+					span Этот блок с супер текстом
+				.exercise_block(class='sort_items')
+					.sort_item(position='1') п
+					.sort_item(position='2') р
+					.sort_item(position='3') о
+					.sort_item(position='4') г
+					.sort_item(position='5') р
+					.sort_item(position='6') а
+					.sort_item(position='7') м
+					.sort_item(position='8') м
+					.sort_item(position='9') и
+					.sort_item(position='10') с
+					.sort_item(position='11') т
 
 		.exercise_column
 			.exercise_blocks_block
-				.exercise_block
-				.exercise_block
-				.exercise_block
+				.exercise_block(class='drag_items')
+					.drag_grid_block
+						.grid_item(style='background-image: url(images/vega/food1.png);', position='1')
+						.grid_item(style='background-image: url(images/vega/food2.png);', position='2')
+						.grid_item(style='background-image: url(images/vega/food3.png);', position='3')
+						.grid_item(style='background-image: url(images/vega/food4.png);', position='4')
+						.grid_item(style='background-image: url(images/vega/food5.png);', position='5')
+						.grid_item(style='background-image: url(images/vega/food6.png);', position='6')
+						.grid_item(style='background-image: url(images/vega/food7.png);', position='7')
+						.grid_item(style='background-image: url(images/vega/food8.png);', position='8')
+					.drag_words_block
+						.word_item(position='1') перец
+						.word_item(position='2') морковь
+						.word_item(position='3') виноград
+						.word_item(position='4') яблоко
+						.word_item(position='5') кукуруза
+						.word_item(position='6') баклажан
+						.word_item(position='7') помидор
+						.word_item(position='8') окорочок
+				.exercise_block(class='drop_words')
+					| Вот моя репа, у
+					select.list(answer='нее')
+						option(value='него') ...
+						option(value='него') него
+						option(value='нее') нее
+					| все хорошо
+				.exercise_block(class='select_grid')
+					.grid_item(answer='true')
+					.grid_item
+					.grid_item
+					.grid_item
+					.grid_item
+					.grid_item
+					.grid_item
+					.grid_item

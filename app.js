@@ -51,6 +51,7 @@ app.use(function(req, res, next) {
 
 var main = require('./routes/main.js');
 var courses = require('./routes/courses.js');
+var exercises = require('./routes/exercises.js');
 var auth = require('./routes/auth.js');
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
@@ -117,6 +118,9 @@ app.route('/courses').get(courses.index);
 
 // === Course Route
 app.route('/courses/:id').get(courses.course);
+
+// === Exercise Route
+app.route('/exercise').get(exercises.index);
 
 
 
