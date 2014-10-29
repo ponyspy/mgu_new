@@ -19,6 +19,12 @@ block content
 	.exercise_columns_block
 		.exercise_column
 			.exercise_blocks_block
+				.exercise_block(class='audio_answer')
+					audio.audio_player(autoplay=false, controls=false)
+						source(src='/audio/test.mp3', type='audio/mp3')
+						span Ваш браузер не пожжерживает тег audio!
+					.text_answer(answer='true') Да
+					.text_answer Нет
 				.exercise_block(class='image')
 					img(src='images/01.jpg')
 				.exercise_block(class='text')

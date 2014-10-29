@@ -6,14 +6,14 @@ $(document).ready(function() {
 
 			var arraysEqual = function(a, b) {
 					if (a === b) return true;
-					if (a == null || b == null) return false;
+					if (a === null || b === null) return false;
 					if (a.length != b.length) return false;
 
 					for (var i = 0; i < a.length; ++i) {
 							if (a[i] !== b[i]) return false;
 					}
 					return true;
-			}
+			};
 
 			var items_position = $('.sort_item').map(function() {
 				return +$(this).attr('position');
@@ -85,6 +85,23 @@ $(document).ready(function() {
 			$(this).css('background-color', 'green');
 		}
 		else {
+			$(this).css('background-color', 'red');
+		}
+	});
+});
+
+
+// Audio
+
+
+$(document).ready(function() {
+	$('.audio_player').click(function() {
+		if (this.paused === false) {
+			this.pause();
+			$(this).css('background-color', 'green');
+		}
+		else {
+			this.play();
 			$(this).css('background-color', 'red');
 		}
 	});
