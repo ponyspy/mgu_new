@@ -42,35 +42,37 @@
   font-weight bold
 
 .block_item_study
+  // outline 1px solid red
   margin-top 10px
+  overflow hidden
 
 .study_exercise_item, .content_item, .block_item_test
   cursor pointer
   &:hover
     text-decoration underline
 
-// .study_exercises_block
-//   width 200px
-//   outline 1px solid red
-
-.study_stat_title
-  margin-top 10px
-  font-weight bold
-  color #2e86bd
-
-.study_exercises_stat_block
-  .study_exercise_item
-    color #2e86bd
+.study_block
+  width 190px
+  color green
+  float left
+  &.stat
+    color blue
+    margin-left 20px
 
 .block_item_content
-  margin-top 10px
+  overflow hidden
 
-.block_item_test
+.study_content_block
+  width: 190px
   margin-top 10px
+  float left
+  &.stat
+    margin-left 20px
 
-.study_title, .content_title
+.study_title, .study_content_title
   font 12pt/14pt 'PT Serif'
   font-weight bold
 
 .block_item_test
+  margin-top 10px
   font-weight bold
