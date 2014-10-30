@@ -36,8 +36,8 @@ var courseSchema = new Schema({
 
 var blockSchema = new Schema({
 		title: String,
+		description: String,
 		vocabulary: [String],
-		statistic: Boolean,
 		content: {
 			title: String,
 			content: [{
@@ -51,7 +51,7 @@ var blockSchema = new Schema({
 		},
 		study: [{
 			title: String,
-			description: String,
+			statistic: Boolean,
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
 		}],
 		date: {type: Date, default: Date.now},

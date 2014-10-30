@@ -4,7 +4,7 @@ block paths
 	- var s_title = course.title.ru.value
 
 block title
-	title КУРСЫ
+	title= 'КУРС | ' + course.title.ru.value.toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/course.css' + version)
