@@ -24,42 +24,45 @@
   overflow hidden
   border-top 1px solid black
   padding-left 10px
+  // display none
 
 .block_item
+  padding-top 10px
+  padding-bottom 10px
+  width 400px
   float left
-  margin-right 180px
+  margin-right 35px
+
+.block_item:nth-child(3n)
+  margin-right 0px
 
 .block_item_title
-  margin-bottom 20px
+  margin-bottom 10px
   font 16pt/18pt 'PT Serif'
   font-weight bold
 
-.block_item_categorys
-  float left
-  font 12pt/14pt 'PT Serif'
-  margin-right 50px
-  width 120px
+.block_item_study
+  margin-top 10px
 
-.category_item
+.study_exercise_item, .content_item, .block_item_test
   cursor pointer
-  display inline-block
-  border-bottom 1px dotted
+  &:hover
+    text-decoration underline
 
-.category_exercises_block
-  display none
+.study_exercises_stat_block
+  margin-top 10px
+  .study_exercise_item
+    color #2e86bd
 
-.block_item_exercises
-  margin-right 50px
-  overflow hidden
-  float left
-
-.block_item_static
-  float left
-  color #4ca96e
+.block_item_content
+  margin-top 10px
 
 .block_item_test
-  clear both
+  margin-top 10px
 
-.exercises_title, .static_title
-  margin-bottom 10px
+.study_title, .content_title
+  font 12pt/14pt 'PT Serif'
+  font-weight bold
 
+.block_item_test
+  font-weight bold
