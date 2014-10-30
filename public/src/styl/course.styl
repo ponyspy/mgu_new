@@ -52,24 +52,26 @@
     text-decoration underline
 
 .study_block
-  width 190px
-  color green
-  float left
-  &.stat
-    color blue
-    margin-left 20px
-
-.block_item_content
+  width 400px
+  margin-bottom 10px
   overflow hidden
+  &:last-child
+    margin-bottom 0px
+  &.stat
+    .study_exercises_block
+      color blue
+
+.study_exercises_block
+  float left
+  color green
+  width 190px
 
 .study_content_block
-  width: 190px
-  margin-top 10px
   float left
-  &.stat
-    margin-left 20px
+  width 190px
+  margin-left 20px
 
-.study_title, .study_content_title
+.study_exercises_title, .study_content_title
   font 12pt/14pt 'PT Serif'
   font-weight bold
 
