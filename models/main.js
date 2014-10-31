@@ -38,22 +38,23 @@ var blockSchema = new Schema({
 		title: String,
 		description: String,
 		vocabulary: [String],
-		content: {
-			title: String,
-			content: [{
-				title: String,
-				body: String
-			}]
-		},
-		test: {
-			title: String,
-			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
-		},
 		study: [{
 			title: String,
 			statistic: Boolean,
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
 		}],
+		content: [{
+			title: String,
+			statistic: Boolean,
+			content: [{
+				title: String,
+				body: String
+			}]
+		}],
+		test: {
+			title: String,
+			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
+		},
 		date: {type: Date, default: Date.now},
 });
 
