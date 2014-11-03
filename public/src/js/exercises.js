@@ -96,13 +96,14 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('.audio_player').click(function() {
-		if (this.paused === false) {
-			this.pause();
-			$(this).css('background-color', 'green');
+		var audio = $(this).children('audio');
+		if (audio.prop('paused') === false) {
+			audio.trigger('pause');
+			// $(this).text('◼︎');
 		}
 		else {
-			this.play();
-			$(this).css('background-color', 'red');
+			audio.trigger('play');
+			// $(this).text('▶︎');
 		}
 	});
 });

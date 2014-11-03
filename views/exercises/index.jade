@@ -15,4 +15,16 @@ block content_scripts
 
 
 block content
-	include all.jade
+	.exercise_task Задание
+	.exercises_navigator
+		a(href='/back') Назад
+		a(href='/forward') Вперед
+	.exercise_columns_block
+		.exercise_column
+			.exercise_blocks_block
+				include types/image.jade
+
+	.exercise_columns_block
+		.exercise_column
+			.exercise_blocks_block
+				include types/audio.jade

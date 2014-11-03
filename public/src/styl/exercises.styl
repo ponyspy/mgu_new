@@ -19,9 +19,14 @@
 
 // Image
 
-.image img {
-	width: 60%;
-}
+.image
+  .ex_image
+    width 600px
+    height 400px
+    // outline 1px solid red
+    background-size contain
+    background-position center
+    background-repeat no-repeat
 
 // Text
 
@@ -92,6 +97,18 @@
 // Audio
 
 .audio_player
-  width 250px
-  height 250px
-  background-color yellow
+  width 90px
+  height 100px
+  margin 100px auto
+  position relative
+  border-radius 100px
+  text-align center
+  font-size 50px
+  line-height 100px
+  padding-left 10px
+  border 2px solid grey
+  color grey
+  &:hover
+    border 2px solid black
+    color black
+    cursor pointer
