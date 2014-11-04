@@ -4,26 +4,50 @@
 .exercise_column
   width 640px
   float left
-  // outline 1px solid red
 
 .exercise_block
   overflow hidden
   margin-bottom 20px
   padding 10px
-  // outline 1px solid green
 
 .exercise_task
   font 16pt/18pt 'PT Serif'
   font-weight bold
   margin 10px
 
+.exercises_navigator
+  width 620px
+  overflow hidden
+  margin-left 10px
+  // outline 1px solid #2e86bd
+
+.items_block
+  float left
+  .ex_item
+    float left
+    font-size 24px
+    color grey
+    margin-right 3px
+    &:hover
+      cursor pointer
+      color black
+
+.steps_block
+  float right
+  img
+    width 30px
+    margin-left 5px
+    border-radius 30px
+    &:hover
+      cursor pointer
+      background-color #2e86bd
+
 // Image
 
 .image
   .ex_image
     width 600px
-    height 400px
-    // outline 1px solid red
+    height 350px
     background-size contain
     background-position center
     background-repeat no-repeat

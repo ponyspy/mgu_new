@@ -119,9 +119,11 @@ app.route('/courses').get(courses.index);
 // === Course Route
 app.route('/courses/:id').get(courses.course);
 
-// === Exercise Route
-app.route('/exercise').get(exercises.index);
+// === Exercise words Route
+app.route('/exercise/words').get(exercises.words);
 
+// === Exercise video Route
+app.route('/exercise/video').get(exercises.video);
 
 
 // ------------------------
