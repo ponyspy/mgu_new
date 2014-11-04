@@ -107,3 +107,24 @@ $(document).ready(function() {
 		}
 	});
 });
+
+
+// Video
+
+
+$(document).ready(function() {
+	$('.player_play').click(function(event) {
+		var video = $(this).parent('.video_player').prev('video');
+		if (video.prop('paused') === false) {
+			video.trigger('pause');
+		}
+		else {
+			video.trigger('play');
+		}
+	});
+
+	$('.player_stop').click(function(event) {
+		var video = $(this).parent('.video_player').prev('video');
+		video.trigger('pause').prop('currentTime', 2);
+	});
+});
