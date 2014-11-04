@@ -50,6 +50,7 @@ app.use(function(req, res, next) {
 
 
 var main = require('./routes/main.js');
+var stat = require('./routes/stat.js');
 var courses = require('./routes/courses.js');
 var exercises = require('./routes/exercises.js');
 var auth = require('./routes/auth.js');
@@ -125,6 +126,8 @@ app.route('/exercise/words').get(exercises.words);
 // === Exercise video Route
 app.route('/exercise/video').get(exercises.video);
 
+// === stat Route
+app.route('/stat').get(stat.index);
 
 // ------------------------
 // *** Admin Courses Block ***
