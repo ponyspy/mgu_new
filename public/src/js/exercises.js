@@ -1,3 +1,20 @@
+// Navigate
+
+
+var nav_position = 0;
+
+$(document).ready(function() {
+	$('.step_forward').click(function(event) {
+		$('.ex_item').eq(nav_position).css('color', 'green');
+		$('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.jpg)')
+
+		$('audio').attr('src', '/audio/0' + (nav_position + 2) + '.mp3');
+		$('audio').trigger('play');
+		nav_position++
+	});
+});
+
+
 // Sort composit
 
 $(document).ready(function() {
