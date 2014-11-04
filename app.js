@@ -126,6 +126,12 @@ app.route('/exercise/words').get(exercises.words);
 // === Exercise video Route
 app.route('/exercise/video').get(exercises.video);
 
+// === Exercise drag Route
+app.route('/exercise/drag').get(exercises.drag);
+
+// === Exercise select Route
+app.route('/exercise/select').get(exercises.select);
+
 // === stat Route
 app.route('/stat').get(stat.index);
 
