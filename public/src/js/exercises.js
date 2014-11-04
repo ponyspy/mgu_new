@@ -96,7 +96,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('.audio_player').click(function() {
-		var audio = $(this).children('audio');
+		var audio = $(this).prev('audio');
 		if (audio.prop('paused') === false) {
 			audio.trigger('pause');
 			// $(this).text('◼︎');
