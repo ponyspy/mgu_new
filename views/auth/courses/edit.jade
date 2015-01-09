@@ -15,9 +15,9 @@ block content
 		.title РЕДАКТИРОВАТЬ КУРС
 		form(action="", method="post")
 			.form_title Заголовок:
-			input.locale(type="text", name="ru[title]", value=course.title.ru.value)
+			input.locale(type="text", name="ru[title]", value=course.i18n.title.get('ru'))
 			.form_title Описание:
-			textarea.locale(name="ru[description]", rows="8",)=course.description.ru.value
+			textarea.locale(name="ru[description]", rows="8",)=course.i18n.description.get('ru')
 			.form_title Список языков:
 			input(type='checkbox', name='langs[languages]', value='ru')
 			|Русский

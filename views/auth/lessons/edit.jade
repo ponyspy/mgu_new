@@ -15,9 +15,9 @@ block content
 		.title РЕДАКТИРОВАТЬ УРОК
 		form(action="", method="post")
 			.form_title Заголовок:
-			input.locale(type="text", name="ru[title]", value=lesson.title)
+			input.locale(type="text", name="ru[title]", value=lesson.i18n.title.get('ru'))
 			.form_title Описание:
-			textarea.locale(name="ru[description]", rows="8",)=lesson.description
+			textarea.locale(name="ru[description]", rows="8",)=lesson.i18n.description.get('ru')
 			.form_title Видимость:
 			select(name='visible')
 				option(value='true', selected=lesson.visible) Да

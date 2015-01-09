@@ -12,15 +12,19 @@ exports.add = function(req, res) {
 
 exports.add_form = function(req, res) {
 	var post = req.body;
-	var date_modify = new Date();
 	var course = new Course();
+
+  course.title = [{
+  	lg: post.langs.def,
+  	value: post.ru.title
+  }];
+  course.description = [{
+  	lg: post.langs.def,
+  	value: post.ru.description
+  }];
 
 	course.visible = post.visible;
 	course.langs = post.langs;
-	course.title[post.langs.def].value = post.ru.title;
-	course.title[post.langs.def].update = date_modify;
-	course.description[post.langs.def].value = post.ru.description;
-	course.description[post.langs.def].update = date_modify;
 	course.authors.push(req.session.user_id);
 
 	course.save(function(err, course) {
@@ -57,16 +61,14 @@ exports.edit = function(req, res) {
 exports.edit_form = function(req, res) {
 	var id = req.params.id;
 	var post = req.body;
-	var date_modify = new Date();
 
 	Course.findById(id).exec(function(err, course) {
 
 		course.visible = post.visible;
 		course.langs = post.langs;
-		course.title[post.langs.def].value = post.ru.title;
-		course.title[post.langs.def].update = date_modify;
-		course.description[post.langs.def].value = post.ru.description;
-		course.description[post.langs.def].update = date_modify;
+
+		course.i18n.title.set(post.ru.title, post.langs.def);
+		course.i18n.description.set(post.ru.description, post.langs.def);
 
 		course.save(function(err, course) {
 			res.redirect('back');
@@ -95,13 +97,11 @@ exports.locale_form = function(req, res) {
 
 	Course.findById(id).exec(function(err, course) {
 		async.forEach(course.langs.languages, function(lang, callback) {
-			if (course.title[lang].value != post[lang].title) {
-				course.title[lang].value = post[lang].title;
-				course.title[lang].update = date_modify;
+			if (course.i18n.title.get(lang) != post[lang].title) {
+				course.i18n.title.set(lang, post[lang].title)
 			}
-			if (course.description[lang].value != post[lang].description) {
-				course.description[lang].value = post[lang].description;
-				course.description[lang].update = date_modify;
+			if (course.i18n.description.get(lang) != post[lang].description) {
+				course.i18n.description.set(lang, post[lang].description)
 			}
 			callback();
 		},function() {

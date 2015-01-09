@@ -23,7 +23,7 @@ block content
 				!=' | '
 				a(href='/auth/courses/locale/' + course._id) перевод
 				!=' | '
-				a(href='/auth/courses/edit/' + course._id)= course.title.ru.value
+				a(href='/auth/courses/edit/' + course._id)= course.i18n.title.get('ru')
 				b= ' ---> '
 				a(href='/auth/lessons/courses/' + course._id) уроки
 				br

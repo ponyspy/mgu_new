@@ -1,4 +1,5 @@
 var Course = require('../../models/main.js').Course;
+var Lesson = require('../../models/main.js').Lesson;
 
 
 // ------------------------
@@ -9,7 +10,7 @@ var Course = require('../../models/main.js').Course;
 exports.list = function(req, res) {
 	var id = req.params.id;
 
-	Course.findById(id).exec(function(err, course) {
+	Course.findById(id).populate('lessons').exec(function(err, course) {
 		res.render('auth/lessons', {course: course});
 	});
 }
@@ -33,14 +34,23 @@ exports.add_form = function(req, res) {
 	var id = req.params.id;
 
 	Course.findById(id).exec(function(err, course) {
-		var lesson = {};
-		lesson.title = post.ru.title;
-		lesson.description = post.ru.description;
-		course.lessons.push(lesson);
+		var lesson = new Lesson();
+		course.lessons.push(lesson._id);
 
-		course.save(function(err, lesson) {
-			res.redirect('back');
-		});
+	  lesson.title = [{
+	  	lg: 'ru',
+	  	value: post.ru.title
+	  }];
+	  lesson.description = [{
+	  	lg: 'ru',
+	  	value: post.ru.description
+	  }];
+
+	  course.save(function(err, course) {
+			lesson.save(function(err, lesson) {
+				res.redirect('back');
+			});
+	  });
 	});
 }
 
@@ -54,9 +64,23 @@ exports.edit = function(req, res) {
 	var id = req.params.id;
 	var lesson_id = req.params.l_id;
 
-	Course.findById(id).exec(function(err, course) {
-		var lesson = course.lessons.id(lesson_id);
+	Lesson.findById(lesson_id).exec(function(err, lesson) {
 		res.render('auth/lessons/edit.jade', {lesson: lesson});
+	});
+}
+
+exports.edit_form = function(req, res) {
+	var id = req.params.id;
+	var lesson_id = req.params.l_id;
+	var post = req.body;
+
+	Lesson.findById(lesson_id).exec(function(err, lesson) {
+		lesson.i18n.title.set(post.ru.title, 'ru');
+		lesson.i18n.description.set(post.ru.description, 'ru');
+
+		lesson.save(function(err, lesson) {
+			res.redirect('back');
+		});
 	});
 }
 

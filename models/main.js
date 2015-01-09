@@ -11,22 +11,11 @@ var userSchema = new Schema({
 });
 
 var courseSchema = new Schema({
-		title: {
-			type: String,
-			locale: true
-		},
-		description: {
-			type: String,
-			locale: true
-		},
-		lessons: [{
-			title: String,
-			description: String,
-			visible: Boolean,
-			blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
-		}],
+		title: { type: String, locale: true },
+		description: { type: String, locale: true },
 		visible: Boolean,
 		authors: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+		lessons: [{ type: Schema.Types.ObjectId, ref: 'Lesson' }],
 		langs: {
 			languages: [String],
 			def: String
@@ -34,25 +23,32 @@ var courseSchema = new Schema({
 		date: {type: Date, default: Date.now},
 });
 
+lessonSchema = new Schema({
+		title: { type: String, locale: true },
+		description: { type: String, locale: true },
+		visible: Boolean,
+		blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }]
+});
+
 var blockSchema = new Schema({
-		title: String,
-		description: String,
+		title: { type: String, locale: true },
+		description: { type: String, locale: true },
 		vocabulary: [String],
 		study: [{
-			title: String,
+			title: { type: String, locale: true },
 			statistic: Boolean,
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
 		}],
 		content: [{
-			title: String,
+			title: { type: String, locale: true },
 			statistic: Boolean,
 			content: [{
-				title: String,
-				body: String
+				title: { type: String, locale: true },
+				body: { type: String, locale: true }
 			}]
 		}],
 		test: {
-			title: String,
+			title: { type: String, locale: true },
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
 		},
 		date: {type: Date, default: Date.now},
@@ -84,6 +80,8 @@ var exerciseSchema = new Schema({
 
 
 courseSchema.plugin(mongooseLocale);
+blockSchema.plugin(mongooseLocale);
+lessonSchema.plugin(mongooseLocale);
 
 
 // ------------------------
@@ -93,5 +91,6 @@ courseSchema.plugin(mongooseLocale);
 
 module.exports.User = mongoose.model('User', userSchema);
 module.exports.Course = mongoose.model('Course', courseSchema);
+module.exports.Lesson = mongoose.model('Lesson', lessonSchema);
 module.exports.Block = mongoose.model('Block', blockSchema);
 module.exports.Exercise = mongoose.model('Exercise', exerciseSchema);
