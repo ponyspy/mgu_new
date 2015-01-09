@@ -16,5 +16,5 @@ block content_scripts
 block content
 	.courses
 		each course in courses
-			a.course(href='/courses/' + course._id)= course.title.ru.value
+			a.course(href='/courses/' + course._id)= course.i18n.title.get('ru')
 			br

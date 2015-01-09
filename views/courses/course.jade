@@ -1,10 +1,10 @@
 extends ../layout
 
 block paths
-	- var s_title = course.title.ru.value
+	- var s_title = course.i18n.title.get('ru')
 
 block title
-	title= 'КУРС | ' + course.title.ru.value.toUpperCase()
+	title= 'КУРС | ' + course.i18n.title.get('ru').toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/course.css' + version)
