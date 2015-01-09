@@ -1,4 +1,5 @@
 var mongooseLocale = require('mongoose-locale');
+var mongooseTrackable = require('mongoose-trackable');
 var mongoose = require('mongoose'),
 			Schema = mongoose.Schema;
 
