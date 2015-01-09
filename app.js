@@ -132,6 +132,9 @@ app.route('/exercise/drag').get(exercises.drag);
 // === Exercise select Route
 app.route('/exercise/select').get(exercises.select);
 
+// === Exercise composit Route
+app.route('/exercise/composit').get(exercises.composit);
+
 // === stat Route
 app.route('/stat').get(stat.index);
 

@@ -6,9 +6,9 @@ var nav_position = 0;
 $(document).ready(function() {
 	$('.step_forward').click(function(event) {
 		$('.ex_item').eq(nav_position).css('color', 'green');
-		$('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.jpg)')
+		$('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.png)')
 
-		$('audio').attr('src', '/audio/0' + (nav_position + 2) + '.mp3');
+		$('audio').attr('src', '/audio/0' + (nav_position + 2) + '.m4a');
 		$('audio').trigger('play');
 		nav_position++
 	});

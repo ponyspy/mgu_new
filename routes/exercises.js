@@ -13,3 +13,7 @@ exports.drag = function(req, res) {
 exports.select = function(req, res) {
 	res.render('exercises/select.jade');
 }
+
+exports.composit = function(req, res) {
+	res.render('exercises/composit.jade');
+}
