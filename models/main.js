@@ -1,5 +1,6 @@
 var mongooseLocale = require('mongoose-locale');
 var mongooseTrackable = require('mongoose-trackable');
+var deepPopulate = require('mongoose-deep-populate');
 var mongoose = require('mongoose'),
 			Schema = mongoose.Schema;
 
@@ -21,34 +22,41 @@ var courseSchema = new Schema({
 			languages: [String],
 			def: String
 		},
-		date: {type: Date, default: Date.now},
+		date: {type: Date, default: Date.now}
 });
 
 lessonSchema = new Schema({
 		title: { type: String, locale: true },
 		description: { type: String, locale: true },
+		vocabulary: [String],
 		visible: Boolean,
-		blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }]
+		blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
+		date: {type: Date, default: Date.now}
 });
 
 var blockSchema = new Schema({
 		title: { type: String, locale: true },
 		description: { type: String, locale: true },
-		vocabulary: [String],
-		study: [{
-			title: { type: String, locale: true },
-			statistic: Boolean,
-			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
-			content: [{
-				title: { type: String, locale: true },
-				body: { type: String, locale: true }
-			}]
-		}],
+		study: [{ type: Schema.Types.ObjectId, ref: 'Stydy' }],
 		test: {
 			title: { type: String, locale: true },
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
 		},
-		date: {type: Date, default: Date.now},
+		date: {type: Date, default: Date.now}
+});
+
+var studySchema = new Schema({
+		title: { type: String, locale: true },
+		statistic: Boolean,
+		exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
+		content: [{ type: Schema.Types.ObjectId, ref: 'Content' }],
+		date: {type: Date, default: Date.now}
+});
+
+var contentSchema = new Schema({
+		title: { type: String, locale: true },
+		body: { type: String, locale: true },
+		date: {type: Date, default: Date.now}
 });
 
 var exerciseSchema = new Schema({
@@ -80,7 +88,10 @@ var exerciseSchema = new Schema({
 
 courseSchema.plugin(mongooseLocale);
 blockSchema.plugin(mongooseLocale);
+studySchema.plugin(mongooseLocale);
+contentSchema.plugin(mongooseLocale);
 lessonSchema.plugin(mongooseLocale);
+lessonSchema.plugin(deepPopulate);
 
 
 // ------------------------
@@ -92,4 +103,6 @@ module.exports.User = mongoose.model('User', userSchema);
 module.exports.Course = mongoose.model('Course', courseSchema);
 module.exports.Lesson = mongoose.model('Lesson', lessonSchema);
 module.exports.Block = mongoose.model('Block', blockSchema);
+module.exports.Stydy = mongoose.model('Study', studySchema);
+module.exports.Content = mongoose.model('Content', contentSchema);
 module.exports.Exercise = mongoose.model('Exercise', exerciseSchema);
