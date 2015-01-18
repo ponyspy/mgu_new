@@ -39,10 +39,6 @@ var blockSchema = new Schema({
 			title: { type: String, locale: true },
 			statistic: Boolean,
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
-		}],
-		content: [{
-			title: { type: String, locale: true },
-			statistic: Boolean,
 			content: [{
 				title: { type: String, locale: true },
 				body: { type: String, locale: true }
@@ -57,19 +53,21 @@ var blockSchema = new Schema({
 
 var exerciseSchema = new Schema({
 		task: String,
-		columns: [{
-			blocks: [{
-				type: {type: String, default: 'Base'},
-				answer: Schema.Types.Mixed,
-				text: String,
-				strings: [String],
-				images: [String],
-				audios: [String],
-				video: {
-					path: String,
-					subs: [String]
-				}
-			}]
+		blocks: [{
+			meta: {
+				row: Number,
+				col: Number
+			},
+			type: {type: String, default: 'Base'},
+			answer: Schema.Types.Mixed,
+			text: String,
+			strings: [String],
+			images: [String],
+			audios: [String],
+			video: {
+				path: String,
+				subs: [String]
+			}
 		}],
 		date: {type: Date, default: Date.now},
 });
