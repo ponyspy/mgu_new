@@ -31,6 +31,9 @@ lessonSchema = new Schema({
 		vocabulary: [String],
 		visible: Boolean,
 		blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
+		meta: {
+			ex_counter: Number
+		},
 		date: {type: Date, default: Date.now}
 });
 
@@ -48,8 +51,14 @@ var blockSchema = new Schema({
 var studySchema = new Schema({
 		title: { type: String, locale: true },
 		statistic: Boolean,
-		exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
-		content: [{ type: Schema.Types.ObjectId, ref: 'Content' }],
+		exercises: [{
+			title: { type: String, locale: true },
+			_exercise: { type: Schema.Types.ObjectId, ref: 'Exercise' }
+		}],
+		content: [{
+			title: { type: String, locale: true },
+			_content: { type: Schema.Types.ObjectId, ref: 'Content' }
+		}],
 		date: {type: Date, default: Date.now}
 });
 
