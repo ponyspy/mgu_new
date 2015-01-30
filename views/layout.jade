@@ -11,7 +11,8 @@ html
 					.head_title_block
 						a.head_title(href='/') SPEAK-RUSSIAN
 						.head_s_title= s_title
-					.chat_block
+					.toggle_lng en
+					//- .chat_block
 						.chat_item
 							.ch_name Вася:
 							.ch_post Супер Класс
@@ -21,7 +22,7 @@ html
 						.chat_post_block
 							.ch_name_create Вы:
 							input.ch_post_create(type='text', valu='...')
-					.menu_block
+					//- .menu_block
 						a(href='/login') Вход
 						br
 						a(href='/make') Составить курс

@@ -50,6 +50,7 @@ app.use(function(req, res, next) {
 
 
 var main = require('./routes/main.js');
+var teaser = require('./routes/teaser.js');
 var stat = require('./routes/stat.js');
 var courses = require('./routes/courses.js');
 var exercises = require('./routes/exercises.js');
@@ -101,12 +102,21 @@ function toMatrix(arr, row) {
 
 
 // ------------------------
+// *** Teaser Routes Block ***
+// ------------------------
+
+
+app.route('/').get(teaser.index);
+app.route('/email_init').post(teaser.email);
+
+
+// ------------------------
 // *** Main Routes Block ***
 // ------------------------
 
 
 // === Main Route
-app.route('/').get(main.index);
+// app.route('/').get(main.index);
 
 
 // === Locale Route

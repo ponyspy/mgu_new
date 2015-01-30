@@ -1,0 +1,22 @@
+extends ../layout
+
+block paths
+	- var s_title = 'Время говорить по-русски'
+
+block title
+	title SPEAK-RUSSIAN
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/ts.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/ts.js' + version)
+
+block content
+	.text_block
+		p Новая дистанционная программа обучения русскому языку как иностранному для начинающих по курсу «Проще, легче, быстрее!» откроется в самое ближайшее время. Програма адресована иностранным учащимся самых разных возрастных и социальных категорий.
+		p Оставьте нам свой e-mail, и мы будем держать вас в курсе событий!
+	.submit_block
+		input.email_form(type='email')
+		button.submit ok
+	img.logo_image(src='/images/design/teaser.png')
