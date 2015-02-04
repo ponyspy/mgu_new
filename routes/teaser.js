@@ -11,7 +11,7 @@ var email = require('emailjs')
 });
 
 exports.index = function(req, res) {
-  res.render('teaser');
+	res.render('teaser');
 }
 
 exports.email = function(req, res) {
@@ -19,30 +19,28 @@ exports.email = function(req, res) {
 
 	User.findOne({'email': post.email}).exec(function(err, user) {
 
-    if (user) {
-      return (function () {
-      	res.send('used');
-      })();
-    }
-
-	  var new_user = new User({
-	    email: post.email
-	  });
-
-	  new_user.save(function(err, new_user) {
-			var userMsg = {
-				from: 'mailer@omnilingo.ru',
-				to: post.email,
-				subject: post.lng == 'ru' ? 'Добро дожаловать!' : 'Welcome!',
-				attachment: [{
-					data: post.lng == 'ru' ? jade.renderFile('./views/teaser/email_ru.jade') : jade.renderFile('./views/teaser/email_en.jade'),
-					alternative: true
-				}]
-			}
-
-			mailer.send(userMsg, function(err){
-				res.send('ok');
+		if (!user) {
+			var new_user = new User({
+				email: post.email
 			});
-	  });
+
+			new_user.save(function(err, new_user) {
+				var userMsg = {
+					from: 'mailer@omnilingo.ru',
+					to: post.email,
+					subject: post.lng == 'ru' ? 'Добро дожаловать!' : 'Welcome!',
+					attachment: [{
+						data: post.lng == 'ru' ? jade.renderFile('./views/teaser/email_ru.jade') : jade.renderFile('./views/teaser/email_en.jade'),
+						alternative: true
+					}]
+				}
+
+				mailer.send(userMsg, function(err) {
+					res.send('ok');
+				});
+			});
+		} else {
+			res.send('used');
+		}
 	});
 }
