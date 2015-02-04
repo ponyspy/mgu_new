@@ -1,13 +1,15 @@
 var User = require('../models/main.js').User;
 
 var jade = require('jade');
-var email = require('emailjs')
-		mailer = email.server.connect({
-			user: "mailer@omnilingo.ru",
-			password: "cer3000",
+var nodemailer = require('nodemailer');
+		transporter = nodemailer.createTransport({
+			auth: {
+				user: "mailer@omnilingo.ru",
+				pass: "cer3000",
+			},
 			host: "smtp.yandex.ru",
 			port: "465",
-			ssl: true
+			secure: true
 });
 
 exports.index = function(req, res) {
@@ -29,13 +31,10 @@ exports.email = function(req, res) {
 					from: 'mailer@omnilingo.ru',
 					to: post.email,
 					subject: post.lng == 'ru' ? 'Добро дожаловать!' : 'Welcome!',
-					attachment: [{
-						data: post.lng == 'ru' ? jade.renderFile('./views/teaser/email_ru.jade') : jade.renderFile('./views/teaser/email_en.jade'),
-						alternative: true
-					}]
+					html: post.lng == 'ru' ? jade.renderFile('./views/teaser/email_ru.jade') : jade.renderFile('./views/teaser/email_en.jade')
 				}
 
-				mailer.send(userMsg, function(err) {
+				transporter.sendMail(userMsg, function(err) {
 					res.send('ok');
 				});
 			});
