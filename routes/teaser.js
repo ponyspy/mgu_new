@@ -34,7 +34,9 @@ exports.email = function(req, res) {
 					html: post.lng == 'ru' ? jade.renderFile('./views/teaser/email_ru.jade') : jade.renderFile('./views/teaser/email_en.jade')
 				}
 
-				transporter.sendMail(userMsg, function(err) {
+				transporter.sendMail(userMsg, function(err, info) {
+					console.log(err);
+					console.log(info);
 					res.send('ok');
 				});
 			});
