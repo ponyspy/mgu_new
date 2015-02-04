@@ -12,6 +12,8 @@ var nodemailer = require('nodemailer');
 			secure: true
 });
 
+var appDir = path.dirname(require.main.filename);
+
 exports.index = function(req, res) {
 	res.render('teaser');
 }
@@ -31,7 +33,7 @@ exports.email = function(req, res) {
 					from: 'mailer@omnilingo.ru',
 					to: post.email,
 					subject: post.lng == 'ru' ? 'Добро дожаловать!' : 'Welcome!',
-					html: post.lng == 'ru' ? jade.renderFile('./views/teaser/email_ru.jade') : jade.renderFile('./views/teaser/email_en.jade')
+					html: post.lng == 'ru' ? jade.renderFile(appDir + '/views/teaser/email_ru.jade') : jade.renderFile(appDir + '/views/teaser/email_en.jade')
 				}
 
 				transporter.sendMail(userMsg, function(err, info) {
