@@ -8,7 +8,7 @@ exports.index = function(req, res) {
 
 exports.course = function(req, res) {
 	var id = req.params.id;
-	Course.findById(id).exec(function(err, course) {
+	Course.findById(id).populate('lessons').exec(function(err, course) {
 		res.render('courses/course.jade', {course: course});
 	});
 }
