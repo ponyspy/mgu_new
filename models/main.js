@@ -13,8 +13,8 @@ var userSchema = new Schema({
 });
 
 var courseSchema = new Schema({
-		title: { type: String, locale: true },
-		description: { type: String, locale: true },
+		title: { type: String, locale: true, track: true },
+		description: { type: String, locale: true, track: true },
 		visible: Boolean,
 		authors: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 		lessons: [{ type: Schema.Types.ObjectId, ref: 'Lesson' }],
@@ -26,8 +26,8 @@ var courseSchema = new Schema({
 });
 
 lessonSchema = new Schema({
-		title: { type: String, locale: true },
-		description: { type: String, locale: true },
+		title: { type: String, locale: true, track: true },
+		description: { type: String, locale: true, track: true },
 		vocabulary: [String],
 		visible: Boolean,
 		blocks: [{ type: Schema.Types.ObjectId, ref: 'Block' }],
@@ -38,33 +38,33 @@ lessonSchema = new Schema({
 });
 
 var blockSchema = new Schema({
-		title: { type: String, locale: true },
-		description: { type: String, locale: true },
+		title: { type: String, locale: true, track: true },
+		description: { type: String, locale: true, track: true },
 		study: [{ type: Schema.Types.ObjectId, ref: 'Stydy' }],
 		test: {
-			title: { type: String, locale: true },
+			title: { type: String, locale: true, track: true },
 			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
 		},
 		date: {type: Date, default: Date.now}
 });
 
 var studySchema = new Schema({
-		title: { type: String, locale: true },
+		title: { type: String, locale: true, track: true },
 		statistic: Boolean,
 		exercises: [{
-			title: { type: String, locale: true },
+			title: { type: String, locale: true, track: true },
 			_exercise: { type: Schema.Types.ObjectId, ref: 'Exercise' }
 		}],
 		content: [{
-			title: { type: String, locale: true },
+			title: { type: String, locale: true, track: true },
 			_content: { type: Schema.Types.ObjectId, ref: 'Content' }
 		}],
 		date: {type: Date, default: Date.now}
 });
 
 var contentSchema = new Schema({
-		title: { type: String, locale: true },
-		body: { type: String, locale: true },
+		title: { type: String, locale: true, track: true },
+		body: { type: String, locale: true, track: true },
 		date: {type: Date, default: Date.now}
 });
 
@@ -95,11 +95,11 @@ var exerciseSchema = new Schema({
 // ------------------------
 
 
-courseSchema.plugin(mongooseLocale);
-blockSchema.plugin(mongooseLocale);
-studySchema.plugin(mongooseLocale);
-contentSchema.plugin(mongooseLocale);
-lessonSchema.plugin(mongooseLocale);
+courseSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
+blockSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
+studySchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
+contentSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
+lessonSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
 lessonSchema.plugin(deepPopulate);
 
 
