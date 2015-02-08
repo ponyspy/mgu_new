@@ -50,6 +50,7 @@ app.use(function(req, res, next) {
 
 
 var main = require('./routes/main.js');
+var test = require('./routes/test.js');
 var stat = require('./routes/stat.js');
 var courses = require('./routes/courses.js');
 var exercises = require('./routes/exercises.js');
@@ -103,6 +104,10 @@ function toMatrix(arr, row) {
 // ------------------------
 // *** Main Routes Block ***
 // ------------------------
+
+
+// === Test Route
+app.route('/test').get(test.main);
 
 
 // === Main Route

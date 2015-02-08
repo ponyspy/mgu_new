@@ -40,26 +40,23 @@ lessonSchema = new Schema({
 var blockSchema = new Schema({
 		title: { type: String, locale: true, track: true },
 		description: { type: String, locale: true, track: true },
-		study: [{ type: Schema.Types.ObjectId, ref: 'Stydy' }],
-		test: {
-			title: { type: String, locale: true, track: true },
-			exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }]
-		},
+		studys: [{ type: Schema.Types.ObjectId, ref: 'Stydy' }],
+		test: { type: Schema.Types.ObjectId, ref: 'Set' },
 		date: {type: Date, default: Date.now}
 });
 
 var studySchema = new Schema({
 		title: { type: String, locale: true, track: true },
-		statistic: Boolean,
-		exercises: [{
-			title: { type: String, locale: true, track: true },
-			_exercise: { type: Schema.Types.ObjectId, ref: 'Exercise' }
-		}],
-		content: [{
-			title: { type: String, locale: true, track: true },
-			_content: { type: Schema.Types.ObjectId, ref: 'Content' }
-		}],
+		exercise_sets: [{ type: Schema.Types.ObjectId, ref: 'Set' }],
+		content_sets: [{ type: Schema.Types.ObjectId, ref: 'Set' }],
 		date: {type: Date, default: Date.now}
+});
+
+var setSchema = new Schema({
+		title: { type: String, locale: true, track: true },
+		statistic: Boolean,
+		exercises: [{ type: Schema.Types.ObjectId, ref: 'Exercise' }],
+		content: [{ type: Schema.Types.ObjectId, ref: 'Content' }]
 });
 
 var contentSchema = new Schema({
@@ -69,7 +66,7 @@ var contentSchema = new Schema({
 });
 
 var exerciseSchema = new Schema({
-		task: String,
+		task: { type: String, locale: true, track: true },
 		blocks: [{
 			meta: {
 				row: Number,
@@ -100,7 +97,8 @@ blockSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'
 studySchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
 contentSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
 lessonSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
-lessonSchema.plugin(deepPopulate);
+setSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'});
+// lessonSchema.plugin(deepPopulate);
 
 
 // ------------------------
@@ -113,5 +111,6 @@ module.exports.Course = mongoose.model('Course', courseSchema);
 module.exports.Lesson = mongoose.model('Lesson', lessonSchema);
 module.exports.Block = mongoose.model('Block', blockSchema);
 module.exports.Stydy = mongoose.model('Study', studySchema);
+module.exports.Set = mongoose.model('Set', setSchema);
 module.exports.Content = mongoose.model('Content', contentSchema);
 module.exports.Exercise = mongoose.model('Exercise', exerciseSchema);
