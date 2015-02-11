@@ -14,10 +14,22 @@ $(document).ready(function() {
 
 
 	$('.set_item.exercise').click(function(event) {
-		var type = $(this).attr('class').split(' ')[2];
+		var exercise = $(this).attr('class').split(' ')[2];
 
-		$.post('/demo_get_exercise', {type: type}).done(function(data) {
+		exercise = exercise.split('_');
+
+		exercise = {
+			lesson: exercise[0],
+			block: exercise[1],
+			set: exercise[2],
+			type: exercise[3]
+		}
+
+		$.post('/demo_get_exercise', {exercise: exercise}).done(function(data) {
 			$('.content_block').empty().append(data);
+			$('.lesson_navigator_inner').stop().slideUp(300);
+			$('.dictionary_block').css('border-top', 'none');
+			$(this).data('clicked', false);
 		});
 	});
 });

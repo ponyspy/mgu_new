@@ -1,50 +1,26 @@
-extends ../layout
+.exercise_task Выучите новые слова
+.exercises_navigator
+	.items_block
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+		.ex_item ●
+	.steps_block
+		img.step_reload(src='/images/design/icons/step_reload.png')
+		img.step_ok(src='/images/design/icons/step_ok.png')
+		img.step_forward(src='/images/design/icons/step_next.png')
+.exercise_columns_block
+	.exercise_column
+		.exercise_blocks_block
+			include types/image.jade
 
-block paths
-	- var s_title = 'упражнение'
-
-block title
-	title Упражнение
-
-block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/course.css' + version)
-	link(rel='stylesheet', type='text/css', href='/build/css/exercises.css' + version)
-
-block content_scripts
-	script(type='text/javascript', src='/build/libs/js/jquery-ui.min.js' + version)
-	script(type='text/javascript', src='/build/js/exercises.js' + version)
-	script(type='text/javascript', src='/build/libs/js/raphael-min.js' + version)
-	script(type='text/javascript', src='/build/js/circles.js' + version)
-	script(type='text/javascript', src='/build/js/course.js' + version)
-
-block navigate
-	include ../navigate.jade
-
-
-block content
-	.exercise_task Выучите новые слова
-	.exercises_navigator
-		.items_block
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-			.ex_item ●
-		.steps_block
-			img.step_reload(src='/images/design/icons/step_reload.png')
-			img.step_ok(src='/images/design/icons/step_ok.png')
-			img.step_forward(src='/images/design/icons/step_next.png')
-	.exercise_columns_block
-		.exercise_column
-			.exercise_blocks_block
-				include types/image.jade
-
-	.exercise_columns_block
-		.exercise_column
-			.exercise_blocks_block
-				include types/audio.jade
+.exercise_columns_block
+	.exercise_column
+		.exercise_blocks_block
+			include types/audio.jade

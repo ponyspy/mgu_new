@@ -4,7 +4,7 @@
 var nav_position = 0;
 
 $(document).ready(function() {
-	$('.step_forward').click(function(event) {
+	$(document).on('click', '.step_forward', function(event) {
 		$('.ex_item').eq(nav_position).css('color', 'green');
 		$('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.png)')
 
@@ -95,7 +95,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-	$('.grid_item').click(function(event) {
+	$(document).on('click', '.grid_item', function(event) {
 		var answer = $(this).attr('answer');
 
 		if (answer) {
@@ -112,7 +112,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-	$('.audio_player').click(function() {
+	$(document).on('click', '.audio_player', function() {
 		var audio = $(this).prev('audio');
 		if (audio.prop('paused') === false) {
 			audio.trigger('pause');
@@ -130,7 +130,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-	$('.player_play').click(function(event) {
+	$(document).on('click', '.player_play', function(event) {
 		var video = $(this).parent('.video_player').prev('video');
 		if (video.prop('paused') === false) {
 			video.trigger('pause');
@@ -140,7 +140,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.player_stop').click(function(event) {
+	$(document).on('click', '.player_stop', function(event) {
 		var video = $(this).parent('.video_player').prev('video');
 		video.trigger('pause').prop('currentTime', 2);
 	});
