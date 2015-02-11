@@ -11,4 +11,13 @@ $(document).ready(function() {
 			$('.dictionary_block').css('border-top', 'none');
 		}
 	});
+
+
+	$('.set_item.exercise').click(function(event) {
+		var type = $(this).attr('class').split(' ')[2];
+
+		$.post('/demo_get_exercise', {type: type}).done(function(data) {
+			$('.content_block').empty().append(data);
+		});
+	});
 });
