@@ -10,11 +10,17 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/courses.css' + version)
 
 block content_scripts
+	script(type='text/javascript', src='/build/libs/js/raphael-min.js' + version)
 	script(type='text/javascript', src='/build/js/courses.js' + version)
+	script(type='text/javascript', src='/build/js/circles.js' + version)
 
 
 block content
 	.courses
 		each course in courses
-			a.course(href='/courses/' + course._id)= course.i18n.title.get('ru')
-			br
+			.courses_item
+				a.course_title(href='/courses/' + course._id)= course.i18n.title.get('ru')
+				.course_lessons
+					.circles
+						each lesson,i in course.lessons
+							.circle(l_title='Урок ' + (i + 1), l_fail='35', l_success='25')

@@ -1,7 +1,7 @@
 var Course = require('../models/main.js').Course;
 
 exports.index = function(req, res) {
-  Course.find().exec(function(err, courses) {
+  Course.find().populate('lessons').exec(function(err, courses) {
     res.render('courses', {courses: courses});
   });
 }
