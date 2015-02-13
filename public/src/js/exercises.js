@@ -18,38 +18,40 @@ $(document).ready(function() {
 // Sort composit
 
 $(document).ready(function() {
-	$('.sort_items').sortable({
-		deactivate: function(event, ui) {
+	$(document).on('mouseenter', '.content_block', function() {
+		$('.sort_items').sortable({
+			deactivate: function(event, ui) {
 
-			var arraysEqual = function(a, b) {
-					if (a === b) return true;
-					if (a === null || b === null) return false;
-					if (a.length != b.length) return false;
+				var arraysEqual = function(a, b) {
+						if (a === b) return true;
+						if (a === null || b === null) return false;
+						if (a.length != b.length) return false;
 
-					for (var i = 0; i < a.length; ++i) {
-							if (a[i] !== b[i]) return false;
-					}
-					return true;
-			};
+						for (var i = 0; i < a.length; ++i) {
+								if (a[i] !== b[i]) return false;
+						}
+						return true;
+				};
 
-			var items_position = $('.sort_item').map(function() {
-				return +$(this).attr('position');
-			});
+				var items_position = $('.sort_item').map(function() {
+					return +$(this).attr('position');
+				});
 
-			var etalon = $('.sort_item').map(function(i) {
-				return i+1;
-			});
+				var etalon = $('.sort_item').map(function(i) {
+					return i+1;
+				});
 
 
-			var result = arraysEqual(items_position, etalon);
+				var result = arraysEqual(items_position, etalon);
 
-			if (result) {
-				$('.sort_item').css({'border-color': 'green', 'cursor': 'default'});
-				$('.sort_items').sortable('disable');
+				if (result) {
+					$('.sort_item').css({'border-color': 'green', 'cursor': 'default'});
+					$('.sort_items').sortable('disable');
+				}
+				else
+					$('.sort_item').css('border-color', 'red');
 			}
-			else
-				$('.sort_item').css('border-color', 'red');
-		}
+		});
 	});
 });
 
@@ -68,8 +70,10 @@ function dorpItem (event, ui) {
 }
 
 $(document).ready(function() {
-	$('.word_item').draggable();
-	$('.grid_item').droppable({ activeClass: 'active', hoverClass: 'hover', drop: dorpItem });
+	$(document).on('mouseenter', '.content_block', function() {
+		$('.word_item').draggable();
+		$('.grid_item').droppable({ activeClass: 'active', hoverClass: 'hover', drop: dorpItem });
+	});
 });
 
 
@@ -77,7 +81,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-	$('.list').change(function() {
+	$(document).on('change', '.list', function() {
 		var answer = $(this).attr('answer');
 		var select = $(this).children('option:selected').val();
 

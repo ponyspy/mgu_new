@@ -29,7 +29,7 @@ $(document).ready(function() {
 			$('.content_block').empty().append(data);
 			$('.lesson_navigator_inner').stop().slideUp(300);
 			$('.dictionary_block').css('border-top', 'none');
-			$(this).data('clicked', false);
+			$('.circle').data('clicked', false);
 		});
 	});
 });
