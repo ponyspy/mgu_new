@@ -1,7 +1,7 @@
 var Course = require('../models/main.js').Course;
 
 exports.index = function(req, res) {
-  Course.find().populate('lessons').exec(function(err, courses) {
+  Course.setLocale('en', 'title description').populate('lessons').exec(function(err, courses) {
     res.render('courses', {courses: courses});
   });
 }

@@ -106,6 +106,9 @@ function toMatrix(arr, row) {
 // *** Main Routes Block ***
 // ------------------------
 
+// === Demo Route lessons
+app.route('/demo_get_lesson').post(demo.get_lesson);
+
 // === Demo Route exercise
 app.route('/demo_get_exercise').post(demo.get_exercise);
 

@@ -3,8 +3,13 @@ $(document).ready(function() {
 		$(this).data('clicked', !$(this).data('clicked'));
 
 		if ($(this).data('clicked')) {
-			$('.lesson_navigator_inner').stop().slideDown(300);
-			$('.dictionary_block').css('border-top', '1px solid black');
+			var lesson = $(this).index();
+			$.post('/demo_get_lesson', {lesson: ++lesson}).done(function(lesson) {
+				$('.lesson_navigator_inner').empty().append(lesson).promise().done(function() {
+					$('.lesson_navigator_inner').stop().slideDown(300);
+					$('.dictionary_block').css('border-top', '1px solid black');
+				});
+			});
 		}
 		else {
 			$('.lesson_navigator_inner').stop().slideUp(300);
@@ -13,7 +18,7 @@ $(document).ready(function() {
 	});
 
 
-	$('.set_item.exercise').click(function(event) {
+	$(document).on('click', '.set_item.exercise', function(event) {
 		var exercise = $(this).attr('class').split(' ')[2];
 
 		exercise = exercise.split('_');
