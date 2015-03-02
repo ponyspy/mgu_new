@@ -119,6 +119,9 @@ app.route('/demo_get_exercise').post(demo.get_exercise);
 // === Test Route
 app.route('/test').get(test.main);
 
+// === Test Route
+app.route('/exs').get(test.exercise);
+
 
 // === Main Route
 app.route('/').get(main.index);

@@ -9,3 +9,7 @@ exports.main = function(req, res) {
 		res.send('ok')
 	});
 }
+
+exports.exercise = function(req, res) {
+	res.render('exercises/l1/b1/exs1.jade')
+}
