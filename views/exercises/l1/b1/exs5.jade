@@ -1,0 +1,14 @@
+extends ../../index.jade
+
+block vars
+	- var task = 'Диалог'
+	- var items = 10
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../types/video.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			include ../../types/text.jade

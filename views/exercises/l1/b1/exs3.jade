@@ -1,0 +1,14 @@
+extends ../../index.jade
+
+block vars
+	- var task = 'Проверьте себя (аудирование)'
+	- var items = 10
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../types/select.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			include ../../types/audio.jade
