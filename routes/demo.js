@@ -17,5 +17,5 @@ exports.get_exercise = function(req, res) {
 	var ex = req.body.exercise;
 	// var html = jade.renderFile(appDir + '/views/exercises/'+ post.exercise.type +'.jade');
 	var html = jade.renderFile(appDir + '/views/exercises/'+ ex.lesson + '/' + ex.block + '/' + ex.set + '.jade');
-	res.send(html)
+	res.send(html);
 }

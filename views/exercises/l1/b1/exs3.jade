@@ -3,12 +3,15 @@ extends ../../index.jade
 block vars
 	- var task = 'Проверьте себя (аудирование)'
 	- var items = 10
+	- var current = 1
 
 block columns
 	.exercise_column
 		.exercise_blocks_block
+			- var path = '/images/exercises/drag/'
 			include ../../types/select.jade
 
 	.exercise_column
 		.exercise_blocks_block
+			- var path = '/audio/01.m4a'
 			include ../../types/audio.jade

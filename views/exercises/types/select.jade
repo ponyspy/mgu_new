@@ -1,9 +1,7 @@
+- var item = 1
+
 .exercise_block(class='select_grid')
-	.grid_item(style='background-image: url(/images/exercises/drag/01.png)', position='1', answer='true')
-	.grid_item(style='background-image: url(/images/exercises/drag/02.png);', position='2')
-	.grid_item(style='background-image: url(/images/exercises/drag/03.png);', position='3')
-	.grid_item(style='background-image: url(/images/exercises/drag/04.png);', position='4', answer='true')
-	.grid_item(style='background-image: url(/images/exercises/drag/05.png);', position='5')
-	.grid_item(style='background-image: url(/images/exercises/drag/06.png);', position='6')
-	.grid_item(style='background-image: url(/images/exercises/drag/07.png);', position='7')
-	.grid_item(style='background-image: url(/images/exercises/drag/08.png);', position='8')
+	while item <= items
+		- var z_item = ('0' + item).slice(-2)
+		.grid_item(style='background-image: url(' + path + z_item + '.png)', answer=(item == current) && 'true')
+		- item++
