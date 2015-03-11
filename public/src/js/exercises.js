@@ -1,20 +1,15 @@
 // Navigate
 
 
-var nav_position = 0;
-
 $(document).ready(function() {
 	$(document).on('click', '.step_forward', function(event) {
 		var hash = $('.content_block').attr('class').split(' ')[1];
-		$.post('/demo_get_exercise', {hash: hash, select: 2}, function(data) {
-			$('.content_block').empty().append(data);
-		});
-		// $('.ex_item').eq(nav_position).css('color', 'green');
-		// $('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.png)')
+		var select = $('.ex_item.select').next().index();
 
-		// $('audio').attr('src', '/audio/0' + (nav_position + 2) + '.m4a');
-		// $('audio').trigger('play');
-		// nav_position++
+		$.post('/demo_get_exercise', {hash: hash, ex_set: 'none', select: ++select}, function(data) {
+			$('.exercise_columns_block').empty().append(data);
+		});
+		$('.ex_item').removeClass('select').eq(--select).addClass('select').css('color', 'green');
 	});
 });
 

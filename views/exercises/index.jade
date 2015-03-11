@@ -1,13 +1,16 @@
 block vars
-.exercise_task #{task}
-.exercises_navigator
-	.items_block
-		- for (var i=0; i < items; i++) {
-			.ex_item ●
-		- }
-	.steps_block
-		img.step_reload(src='/images/design/icons/step_reload.png')
-		img.step_ok(src='/images/design/icons/step_ok.png')
-		img.step_forward(src='/images/design/icons/step_next.png')
-.exercise_columns_block
+if (ex_set)
+	.exercise_task #{task}
+	.exercises_navigator
+		.items_block
+			- for (var i=0; i < items; i++) {
+				.ex_item ●
+			- }
+		.steps_block
+			img.step_reload(src='/images/design/icons/step_reload.png')
+			img.step_ok(src='/images/design/icons/step_ok.png')
+			img.step_forward(src='/images/design/icons/step_next.png')
+	.exercise_columns_block
+		block columns
+else
 	block columns

@@ -23,6 +23,7 @@ $(document).ready(function() {
 
 		$.post('/demo_get_exercise', {hash: hash, select: 1}).done(function(data) {
 			$('.content_block').empty().append(data).attr('class', 'content_block').addClass(hash);
+			$('.ex_item').eq(0).addClass('select');
 			$('.lesson_navigator_inner').stop().slideUp(300);
 			$('.dictionary_block').css('border-top', 'none');
 			$('.circle').data('clicked', false);

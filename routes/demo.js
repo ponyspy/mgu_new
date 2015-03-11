@@ -16,6 +16,7 @@ exports.get_lesson = function(req, res) {
 exports.get_exercise = function(req, res) {
 	var hash = req.body.hash;
 	var select = req.body.select;
+	var ex_set = req.body.ex_set == 'none' ? false : true;
 	var exercise = hash.split('_');
 
 	var meta = {
@@ -27,6 +28,6 @@ exports.get_exercise = function(req, res) {
 
 	var path = meta.lesson + '/' + meta.block + '/' + meta.set;
 
-	var html = jade.renderFile(appDir + '/views/exercises/' + path + '.jade', {ex_path: path, select: select});
+	var html = jade.renderFile(appDir + '/views/exercises/' + path + '.jade', {ex_path: path, ex_set: ex_set, select: select});
 	res.send(html);
 }
