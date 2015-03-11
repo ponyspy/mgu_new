@@ -5,12 +5,16 @@ var nav_position = 0;
 
 $(document).ready(function() {
 	$(document).on('click', '.step_forward', function(event) {
-		$('.ex_item').eq(nav_position).css('color', 'green');
-		$('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.png)')
+		var hash = $('.content_block').attr('class').split(' ')[1];
+		$.post('/demo_get_exercise', {hash: hash, select: 2}, function(data) {
+			$('.content_block').empty().append(data);
+		});
+		// $('.ex_item').eq(nav_position).css('color', 'green');
+		// $('.ex_image').css('background-image', 'url(/images/exercises/new_words/0' + (nav_position + 2) + '.png)')
 
-		$('audio').attr('src', '/audio/0' + (nav_position + 2) + '.m4a');
-		$('audio').trigger('play');
-		nav_position++
+		// $('audio').attr('src', '/audio/0' + (nav_position + 2) + '.m4a');
+		// $('audio').trigger('play');
+		// nav_position++
 	});
 });
 

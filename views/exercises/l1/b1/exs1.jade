@@ -7,10 +7,10 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/images/exercises/new_words/01.png'
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
 			include ../../types/image.jade
 
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/audio/01.m4a'
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			include ../../types/audio.jade

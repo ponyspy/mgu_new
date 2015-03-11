@@ -14,8 +14,19 @@ exports.get_lesson = function(req, res) {
 
 
 exports.get_exercise = function(req, res) {
-	var ex = req.body.exercise;
-	// var html = jade.renderFile(appDir + '/views/exercises/'+ post.exercise.type +'.jade');
-	var html = jade.renderFile(appDir + '/views/exercises/'+ ex.lesson + '/' + ex.block + '/' + ex.set + '.jade');
+	var hash = req.body.hash;
+	var select = req.body.select;
+	var exercise = hash.split('_');
+
+	var meta = {
+		lesson: exercise[0],
+		block: exercise[1],
+		set: exercise[2],
+		type: exercise[3]
+	}
+
+	var path = meta.lesson + '/' + meta.block + '/' + meta.set;
+
+	var html = jade.renderFile(appDir + '/views/exercises/' + path + '.jade', {ex_path: path, select: select});
 	res.send(html);
 }
