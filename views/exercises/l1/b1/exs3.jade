@@ -2,8 +2,9 @@ extends ../../index.jade
 
 block vars
 	- var task = 'Проверьте себя (аудирование)'
-	- var items = 10
-	- var current = 1
+	- var items = 9
+	- var rand = function(min, max) { return (min + Math.random()*(max+1-min))^0; }
+	- var current = rand(+select, +items)
 
 block columns
 	.exercise_column
@@ -13,5 +14,5 @@ block columns
 
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var path = '/audio/' + ex_path + '/' + ('0' + current).slice(-2) + '.m4a'
 			include ../../types/audio.jade
