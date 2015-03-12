@@ -12,4 +12,7 @@ block columns
 
 	.exercise_column
 		.exercise_blocks_block
-			include ../../types/text.jade
+			if (select == 1)
+				include ../../../text/exercises/l1/b1/exs5/01.jade
+			if (select == 2)
+				include ../../../text/exercises/l1/b1/exs5/02.jade
