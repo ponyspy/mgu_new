@@ -22,5 +22,10 @@ block content
 				a.course_title(href='/courses/' + course._id)= course.i18n.title.get('ru')
 				.course_lessons
 					.circles
-						each lesson,i in course.lessons
+						.circle(l_title='Урок 1', l_fail='50', l_success='50')
+						.circle(l_title='Урок 2', l_fail='50', l_success='50')
+						.circle(l_title='Урок 3', l_fail='50', l_success='50')
+						.circle(l_title='Урок 4', l_fail='50', l_success='50')
+						.circle(l_title='Урок 5', l_fail='50', l_success='50')
+						//- each lesson,i in course.lessons
 							.circle(l_title='Урок ' + (i + 1), l_fail='35', l_success='25')
