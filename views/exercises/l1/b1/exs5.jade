@@ -2,11 +2,12 @@ extends ../../index.jade
 
 block vars
 	- var task = 'Диалог'
-	- var items = 10
+	- var items = 2
 
 block columns
 	.exercise_column
 		.exercise_blocks_block
+			- var path = '/video/' + ex_path + '/' + ('0' + select).slice(-2) + '.mp4'
 			include ../../types/video.jade
 
 	.exercise_column
