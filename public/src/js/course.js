@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+	$(window)
+	.on('load',function(){
+		$(this).trigger('hashchange');
+	})
+	.on('hashchange',function(){
+		 var hash = location.hash.slice(1);
+		$('.circle').eq(hash - 1).trigger('click')
+	});
+
 	$('.circle').click(function(event) {
 		$(this).data('clicked', !$(this).data('clicked'));
 

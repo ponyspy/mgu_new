@@ -1,0 +1,16 @@
+extends ../../index.jade
+
+block vars
+	- var task = 'Выучите новые слова'
+	- var items = 20
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			include ../../types/image.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../types/audio.jade
