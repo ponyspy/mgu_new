@@ -39,4 +39,17 @@ $(document).ready(function() {
 			$('.circle').data('clicked', false);
 		});
 	});
+
+	$(document).on('click', '.set_item.content', function(event) {
+		var hash = $(this).attr('class').split(' ')[2];
+
+		$.post('/demo_get_grammar', {hash: hash, select: 1}).done(function(data) {
+			$('.content_block').empty().append(data).attr('class', 'content_block').addClass(hash);
+			$('.ex_item').eq(0).addClass('select');
+			$('.lesson_navigator_inner').stop().slideUp(300);
+			$('.dictionary_block').css('border-top', 'none');
+			$('.circle').data('clicked', false);
+		});
+	});
+
 });

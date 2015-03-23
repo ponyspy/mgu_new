@@ -112,6 +112,9 @@ app.route('/demo_get_lesson').post(demo.get_lesson);
 // === Demo Route exercise
 app.route('/demo_get_exercise').post(demo.get_exercise);
 
+// === Demo Route grammar
+app.route('/demo_get_grammar').post(demo.get_grammar);
+
 // === Demo Route content
 // app.route('/demo_get_content').post(demo.get_content);
 

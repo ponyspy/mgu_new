@@ -31,3 +31,20 @@ exports.get_exercise = function(req, res) {
 	var html = jade.renderFile(appDir + '/views/exercises/' + path + '.jade', {ex_path: path, ex_set: ex_set, select: select});
 	res.send(html);
 }
+
+exports.get_grammar = function(req, res) {
+	var hash = req.body.hash;
+	var grammar = hash.split('_');
+
+	var meta = {
+		lesson: grammar[0],
+		block: grammar[1],
+		set: grammar[2],
+		type: grammar[3]
+	}
+
+	var path = meta.lesson + '/' + meta.block + '/' + meta.set;
+
+	var html = jade.renderFile(appDir + '/views/text/grammar/' + path + '.jade');
+	res.send(html);
+}
