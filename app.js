@@ -57,6 +57,7 @@ var courses = require('./routes/courses.js');
 var exercises = require('./routes/exercises.js');
 var auth = require('./routes/auth.js');
 var content = require('./routes/content.js');
+var request = require('./routes/request.js');
 var files = require('./routes/files.js');
 
 var admin_courses = require('./routes/admin/courses.js');
@@ -289,6 +290,13 @@ app.route('/registr')
 
 // === Contacts Route
 app.route('/about').get(content.about);
+
+// === Request Route
+app.route('/request').get(request.index);
+
+app.route('/request/one').get(request.one);
+
+app.route('/request/two').get(request.two);
 
 
 // ------------------------
