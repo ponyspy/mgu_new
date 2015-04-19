@@ -1,0 +1,8 @@
+.exercise_block(class='question')
+	if (path)
+		audio(autoplay=true, controls=false)
+			source(src=path, type='audio/mp4')
+			span Ваш браузер не пожжерживает тег audio!
+	.questions_block
+		each question, i in questions[select-1].qs
+			.question_item(answer=questions[select-1].answer == i && 'true' )= question

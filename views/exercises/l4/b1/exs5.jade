@@ -1,0 +1,17 @@
+extends ../../index.jade
+
+block vars
+	- var task = 'Ответьте на вопрос'
+	- var items = 9
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			include ../../types/image.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var questions = [{'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 0}, {'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 0}, {'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 0}, {'qs': ['Да', 'Нет'], 'answer': 0}, {'qs': ['Да', 'Нет'], 'answer': 0}]
+			include ../../types/question.jade

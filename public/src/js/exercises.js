@@ -148,3 +148,14 @@ $(document).ready(function() {
 		video.trigger('pause').prop('currentTime', 2);
 	});
 });
+
+
+// Questions
+
+$(document).ready(function() {
+	$(document).on('click', '.question_item', function(event) {
+		$(this).attr('answer') == 'true'
+			? $(this).css('color', 'green')
+			: $(this).css('color', 'red')
+	});
+});
