@@ -1,0 +1,31 @@
+extends ../layout
+
+block paths
+	- var title = 'FREE LESSON'
+	- var s_title = 'Registration for the Program'
+
+block title
+	title= 'Registration for the Program'
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/about.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/about.js' + version)
+
+
+block content
+	.content_title FREE LESSON
+	.content_text
+		p My level of knowledge of the Russian language
+		select
+			option() I don't know Russian at all
+			option() I know some things
+			option() I know Russian quite well
+		p I would like to have a lesson
+		select
+			option() in the morning / evening,
+			option() on weekday / weekend
+		br
+		br
+		button Send

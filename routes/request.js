@@ -9,3 +9,7 @@ exports.one = function(req, res) {
 exports.two = function(req, res) {
   res.render('request/step_two_en.jade');
 }
+
+exports.free = function(req, res) {
+  res.render('request/free_request_en.jade');
+}

@@ -298,6 +298,8 @@ app.route('/request/one').get(request.one);
 
 app.route('/request/two').get(request.two);
 
+app.route('/request/free').get(request.free);
+
 
 // ------------------------
 // *** Files Routes Block ***
