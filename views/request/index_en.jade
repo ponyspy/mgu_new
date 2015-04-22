@@ -1,0 +1,25 @@
+extends ../layout
+
+block paths
+	- var title = 'REGISTRATION FOR THE PROGRAM'
+	- var s_title = 'Registration for the Program'
+
+block title
+	title= 'Registration for the Program'
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/about.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/about.js' + version)
+
+
+block content
+	//- .content_title ЗАЯВКА
+	.content_text
+		p We are happy that you are interested in our distance learning project.
+		p Currently, we are starting to work with beginner students using our course “Time to Speak Russian!” Lessons will be held by its authors Anna Petanova and Yulia Kovalenko.
+		p Your personalised course will consist of private online Skype sessions and offline assignments prepared and checked by a tutor.
+		p The first 30 minute online lesson is FREE for all those who wish to try the course.
+		p If you like the lesson and you decide to take the course, you will have to sign up for it and fill out some forms.
+		button(onclick="location.href='/request/one'") Sign up for a lesson

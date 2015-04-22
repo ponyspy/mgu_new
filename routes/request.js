@@ -1,11 +1,11 @@
 exports.index = function(req, res) {
-  res.render('request/index.jade');
+  res.render('request/index_en.jade');
 }
 
 exports.one = function(req, res) {
-  res.render('request/step_one.jade');
+  res.render('request/step_one_en.jade');
 }
 
 exports.two = function(req, res) {
-  res.render('request/step_two.jade');
+  res.render('request/step_two_en.jade');
 }
