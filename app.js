@@ -313,51 +313,42 @@ app.route('/sitemap.xml').get(files.sitemap);
 // === Files #robots.txt Route
 app.route('/robots.txt').get(files.robots);
 
-// === Files #application.png Route
-// app.route('/files/docs/en/application.png').get(files.application);
-
-// === Files #contract.doc Route
-// app.route('/files/docs/en/contract.doc').get(files.contract);
-
-// === Files #invoice.jog Route
-// app.route('/files/docs/en/invoice.jpg').get(files.invoice);
-
 
 // ------------------------
 // *** Error Handling Block ***
 // ------------------------
 
 
-// app.use(function(req, res, next) {
-// 	var accept = accepts(req);
-// 	res.status(404);
+app.use(function(req, res, next) {
+	var accept = accepts(req);
+	res.status(404);
 
-// 	// respond with html page
-// 	if (accept.types('html')) {
-// 		res.render('error', { url: req.url, status: 404 });
-// 		return;
-// 	}
+	// respond with html page
+	if (accept.types('html')) {
+		res.render('error', { url: req.url, status: 404 });
+		return;
+	}
 
-// 	// respond with json
-// 	if (accept.types('json')) {
-// 			res.send({
-// 			error: {
-// 				status: 'Not found'
-// 			}
-// 		});
-// 		return;
-// 	}
+	// respond with json
+	if (accept.types('json')) {
+			res.send({
+			error: {
+				status: 'Not found'
+			}
+		});
+		return;
+	}
 
-// 	// default to plain-text
-// 	res.type('txt').send('Not found');
-// });
+	// default to plain-text
+	res.type('txt').send('Not found');
+});
 
-// app.use(function(err, req, res, next) {
-// 	var status = err.status || 500;
+app.use(function(err, req, res, next) {
+	var status = err.status || 500;
 
-// 	res.status(status);
-// 	res.render('error', { error: err, status: status });
-// });
+	res.status(status);
+	res.render('error', { error: err, status: status });
+});
 
 
 // ------------------------
