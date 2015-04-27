@@ -313,6 +313,15 @@ app.route('/sitemap.xml').get(files.sitemap);
 // === Files #robots.txt Route
 app.route('/robots.txt').get(files.robots);
 
+// === Files #application.png Route
+app.route('/files/docs/en/application.png').get(files.application);
+
+// === Files #contract.doc Route
+app.route('/files/docs/en/contract.doc').get(files.contract);
+
+// === Files #invoice.jog Route
+app.route('/files/docs/en/invoice.jpg').get(files.invoice);
+
 
 // ------------------------
 // *** Error Handling Block ***
