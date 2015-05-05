@@ -17,13 +17,13 @@ $(document).ready(function() {
 			$.post('/demo_get_lesson', {lesson: ++lesson}).done(function(lesson) {
 				$('.lesson_navigator_inner').empty().append(lesson).promise().done(function() {
 					$('.lesson_navigator_inner').stop().slideDown(300);
-					$('.dictionary_block').css('border-top', '1px solid black');
+					$('.lesson_navigator_inner').css('border-bottom', '1px solid black');
 				});
 			});
 		}
 		else {
 			$('.lesson_navigator_inner').stop().slideUp(300);
-			$('.dictionary_block').css('border-top', 'none');
+			$('.lesson_navigator_inner').css('border-bottom', 'none');
 		}
 	});
 
