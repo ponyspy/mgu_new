@@ -1,0 +1,4 @@
+.exercise_block(class='question')
+	.questions_block
+		each question, i in questions[select-1].qs
+			.question_item(answer=questions[select-1].answer == i && 'true' )= question

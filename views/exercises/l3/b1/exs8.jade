@@ -1,0 +1,16 @@
+extends ../../index.jade
+
+block vars
+	- var task = 'Распределите слова по группам:'
+	- var items = 1
+	- var words = [{'word':'... это море?', 'position': 3}, {'word':'... эта сумка?', 'position': 2}, {'word':'... этот человек?', 'position': 1}, {'word':'... это яблоко', 'position': 1}, {'word':'... эти часы?', 'position': 1}, {'word':'... эта лампа?', 'position': 2}, {'word':'... эта машина?', 'position': 2}, {'word':'... этот музей?', 'position': 1}]
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/'
+			include ../../types/drag.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- include types/audio.jade

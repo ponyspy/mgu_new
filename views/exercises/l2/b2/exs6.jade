@@ -1,0 +1,18 @@
+extends ../../index.jade
+
+block vars
+	- var task = 'Составьте слово из слогов:'
+	- var items = 4
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			include ../../types/image.jade
+			- var sortable = [['д', 'р', 'у', 'з', 'ь', 'я'], ['д', 'е', 'т', 'и'], ['Вот', 'наш', 'город.', 'Здесь', 'есть', 'улицы', 'и', 'дома']]
+			include ../../types/sort.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			//- include ../../types/audio.jade

@@ -1,12 +1,6 @@
+- var sort_items = sortable[select - 1]
+- var items_random = sort_items.slice(0, sort_items.length).sort(function() { return .5 - Math.random(); })
+
 .exercise_block(class='sort_items')
-	.sort_item(position='3') не
-	.sort_item(position='2') он
-	.sort_item(position='1') Нет,
-	.sort_item(position='4') менеджер
-	//- .sort_item(position='5') р
-	//- .sort_item(position='6') а
-	//- .sort_item(position='7') м
-	//- .sort_item(position='8') м
-	//- .sort_item(position='9') и
-	//- .sort_item(position='10') с
-	//- .sort_item(position='11') т
+	each item in items_random
+		.sort_item(position=(sort_items.indexOf(item) + 1))= item
