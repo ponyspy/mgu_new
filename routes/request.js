@@ -37,7 +37,7 @@ exports.free_form = function(req, res) {
 	}
 
 	transporter.sendMail(opts, function(err, info) {
-		res.redirect('back');
+		res.redirect('/request');
 	});
 }
 
@@ -75,6 +75,6 @@ exports.course_form = function(req, res) {
 	}
 
 	transporter.sendMail(opts, function(err, info) {
-		res.redirect('back');
+		res.redirect('/request');
 	});
 }
