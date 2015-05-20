@@ -29,16 +29,17 @@ block content
 		p Please make scanned copies of the documents that you have filled out, and upload them here using the buttons below.
 		p As soon as we receive the forms, Anna or Yulia will contact you and and you will start your course.
 		p We look forward to hearing from you soon!
-		div Applicaton
-		input(type='file')
-		br
-		br
-		div Contract
-		input(type='file')
-		br
-		br
-		div Invoice
-		input(type='file')
-		br
-		br
-		button Send
+		form(action="/request/course", method="post")
+			div Applicaton
+			input(type='file')
+			br
+			br
+			div Contract
+			input(type='file')
+			br
+			br
+			div Invoice
+			input(type='file')
+			br
+			br
+			input(type='submit', value='send')

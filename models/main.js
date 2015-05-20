@@ -8,6 +8,13 @@ var userSchema = new Schema({
 		login: String,
 		password: String,
 		email: String,
+		skype: String,
+		name: {
+			first: String,
+			last: String
+		},
+		country: String,
+		lang: String,
 		status: {type: String, default: 'User'},
 		date: {type: Date, default: Date.now},
 });

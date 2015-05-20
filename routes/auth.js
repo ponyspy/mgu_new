@@ -28,7 +28,9 @@ exports.login_form = function(req, res) {
     req.session.user_id = person._id;
     req.session.status = person.status;
     req.session.login = person.login;
-    res.redirect('/auth');
+    person.status == 'User'
+      ? res.redirect('/request')
+      : res.redirect('/auth');
   });
 }
 
@@ -64,7 +66,14 @@ exports.registr_form = function(req, res) {
   var user = new User({
     login: post.login,
     password: post.password,
-    email: post.email
+    email: post.email,
+    skype: post.skype,
+    lang: post.lang,
+    country: post.country,
+    name: {
+      first: post.name.first,
+      last: post.name.last
+    }
   });
 
   user.save(function(err, user) {

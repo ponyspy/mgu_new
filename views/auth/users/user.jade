@@ -1,0 +1,25 @@
+extends ../../layout
+
+block title
+	title= user.name.first + ' ' + user.name.last
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/add.js')
+
+block content
+	h1= user.name.first + ' ' + user.name.last
+	.form_title e-mail
+	p= user.email
+	.form_title Skype
+	p= user.skype
+	.form_title Статус
+	form(action="", method="post")
+		select(name='status')
+			option(value='User', selected=user.status == 'User') Пользователь
+			option(value='Admin', selected=user.status == 'Admin') Администратор
+		br
+		br
+		input(type='submit', value='отправить')

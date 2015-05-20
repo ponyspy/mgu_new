@@ -1,0 +1,60 @@
+extends ../layout
+
+block paths
+	- var title = 'REGISTRATION FOR THE PROGRAM'
+	- var s_title = 'Registration for the Program'
+
+block title
+	title= 'Registration for the Program'
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/about.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/about.js' + version)
+
+
+block content
+	form(action="/request/course", method="post", enctype="multipart/form-data")
+		.content_title STEP 1
+		.content_text
+			p First, you have to choose the course you are interested in taking. There are 3 options:
+			input(type='radio', id='one', name='type', value='1')
+			label(for='one') A complete course for beginners — Basic level of Russian (A2), 288 academic hours (1 academic hour is 45 min.), 4 to 8 months
+			div $2340.00
+			br
+			input(type='radio', id='two', name='type', value='2')
+			label(for='two') A brief course — Elementary level (A1), 114 academic hours (1 academic hour is 45 min.), 2 to 5 months
+			div $1170.00
+			br
+			input(type='radio', id='three', name='type', value='3')
+			label(for='three') A personalised course covering a subject of your particular interest — 5 online lessons, 60 minutes each
+			div $150.00
+		br
+		.content_title STEP 2
+		.content_text
+			p You have to fill out the following forms:
+			ul
+				li
+					a(href='/files/docs/en/application.docx') an application to register for the program
+				li
+					a(href='/files/docs/en/contract.doc') a learning contract with Moscow State University
+				li
+					a(href='/files/docs/en/invoice.jpg') a bank receipt that confirms that payment for the program has been made
+			p The application and the learning contract are offered in Russian and in English. Fields “name”, “last name”, “term of study”, “date” and “signature” must be carefully filled in. The bank receipt must also contain your last name and country.
+			p Please make scanned copies of the documents that you have filled out, and upload them here using the buttons below.
+			p As soon as we receive the forms, Anna or Yulia will contact you and and you will start your course.
+			p We look forward to hearing from you soon!
+			.form_title Applicaton
+			input(type='file', name='application')
+			br
+			br
+			.form_title Contract
+			input(type='file', name='contract')
+			br
+			br
+			.form_title Invoice
+			input(type='file', name='invoice')
+			br
+			br
+			input(type='submit', value='send')

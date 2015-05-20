@@ -60,6 +60,7 @@ var content = require('./routes/content.js');
 var request = require('./routes/request.js');
 var files = require('./routes/files.js');
 
+var admin_users = require('./routes/admin/users.js');
 var admin_courses = require('./routes/admin/courses.js');
 var admin_lessons = require('./routes/admin/lessons.js');
 var admin_blocks = require('./routes/admin/blocks.js');
@@ -71,7 +72,19 @@ var admin_blocks = require('./routes/admin/blocks.js');
 
 
 function checkAuth (req, res, next) {
-	req.session.user_id ? next() : res.redirect('/login');
+	if (req.session.status == 'Admin') {
+		next();
+	} else {
+		res.redirect('/login');
+	}
+}
+
+function checkUser (req, res, next) {
+	if (req.session.status == 'User' || req.session.status == 'Admin') {
+		next();
+	} else {
+		res.redirect('/login');
+	}
 }
 
 
@@ -133,7 +146,6 @@ app.route('/').get(main.index);
 
 // === Locale Route
 app.route('/lang/:locale').get(main.locale);
-
 
 
 // === Courses Route
@@ -258,6 +270,16 @@ app.route('/auth/blocks/remove')
 	 // .post(checkAuth, admin_blocks.remove);
 
 
+// === Users Route
+app.route('/auth/users').get(checkAuth, admin_users.index);
+
+
+// === User Route
+app.route('/auth/users/:id')
+	.get(checkAuth, admin_users.user)
+	.post(checkAuth, admin_users.user_form);
+
+
 // ------------------------
 // *** Auth Routes Block ***
 // ------------------------
@@ -292,13 +314,15 @@ app.route('/registr')
 app.route('/about').get(content.about);
 
 // === Request Route
-app.route('/request').get(request.index);
+app.route('/request').get(checkUser, request.index);
 
-app.route('/request/one').get(request.one);
+app.route('/request/course')
+	.get(checkUser, request.course)
+	.post(checkUser, request.course_form);
 
-app.route('/request/two').get(request.two);
-
-app.route('/request/free').get(request.free);
+app.route('/request/free')
+	.get(checkUser, request.free)
+	.post(checkUser, request.free_form);
 
 
 // ------------------------

@@ -1,22 +1,30 @@
 extends ../layout
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/add_member.css')
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
 
 block content
-	h1 Регистрация
+	.title REGISTRATION
 	form(action='/registr', method='post')
-		|Email:
-		br
-		input(type='text', name='email', placeholder='john@appleseed.com')
-		br
-		|Логин:
-		br
-		input(type='text', name='login', placeholder='john')
-		br
-		|Пароль:
-		br
+		.form_title Email:
+		input(type='text', name='email')
+		.form_title Skype:
+		input(type='text', name='skype')
+		.form_title First name:
+		input(type='text', name='name[first]')
+		.form_title Last name:
+		input(type='text', name='name[last]')
+		.form_title Country:
+		input(type='text', name='country')
+		.form_title Language of communication:
+		select(name='lang')
+			option(value='ru') Russian
+			option(value='en') English
+			option(value='it') Italian
+		.form_title Login:
+		input(type='text', name='login')
+		.form_title Password:
 		input(type='password', name='password')
 		br
 		br
-		input(type='submit', value='Отправить!')
+		input(type='submit', value='Submit')

@@ -17,15 +17,16 @@ block content_scripts
 block content
 	.content_title FREE LESSON
 	.content_text
-		p My level of knowledge of the Russian language
-		select
-			option() I don't know Russian at all
-			option() I know some things
-			option() I know Russian quite well
-		p I would like to have a lesson
-		select
-			option() in the morning / evening,
-			option() on weekday / weekend
-		br
-		br
-		button Send
+		form(action="", method="post")
+			p My level of knowledge of the Russian language
+			select(name='level')
+				option(value='1') I don't know Russian at all
+				option(value='2') I know some things
+				option(value='3') I know Russian quite well
+			p I would like to have a lesson
+			select(name='time')
+				option(value='1') in the morning / evening
+				option(value='2') on weekday / weekend
+			br
+			br
+			input(type='submit', value='send')
