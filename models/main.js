@@ -19,6 +19,15 @@ var userSchema = new Schema({
 		date: {type: Date, default: Date.now},
 });
 
+var requestSchema = new Schema({
+		user: { type: Schema.Types.ObjectId, ref: 'User' },
+		type: String,
+		time: String,
+		level: String,
+		subscribe: String,
+		date: {type: Date, default: Date.now},
+});
+
 var courseSchema = new Schema({
 		title: { type: String, locale: true, track: true },
 		description: { type: String, locale: true, track: true },
@@ -114,6 +123,7 @@ setSchema.plugin(mongooseLocale, {lang_override: 'lg', value_override: 'value'})
 
 
 module.exports.User = mongoose.model('User', userSchema);
+module.exports.Request = mongoose.model('Request', requestSchema);
 module.exports.Course = mongoose.model('Course', courseSchema);
 module.exports.Lesson = mongoose.model('Lesson', lessonSchema);
 module.exports.Block = mongoose.model('Block', blockSchema);

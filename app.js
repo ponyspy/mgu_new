@@ -64,6 +64,7 @@ var admin_users = require('./routes/admin/users.js');
 var admin_courses = require('./routes/admin/courses.js');
 var admin_lessons = require('./routes/admin/lessons.js');
 var admin_blocks = require('./routes/admin/blocks.js');
+var admin_requests = require('./routes/admin/requests.js');
 
 
 // ------------------------
@@ -205,6 +206,20 @@ app.route('/auth/courses/remove')
 
 
 // ------------------------
+// *** Admin Requests Block ***
+// ------------------------
+
+
+// === Admin Requests Route
+app.route('/auth/requests')
+	 .get(checkAuth, admin_requests.list);
+
+// === Admin Request Route
+app.route('/auth/requests/:id')
+	 .get(checkAuth, admin_requests.request);
+
+
+// ------------------------
 // *** Admin Lessons Block ***
 // ------------------------
 
@@ -343,36 +358,36 @@ app.route('/robots.txt').get(files.robots);
 // ------------------------
 
 
-app.use(function(req, res, next) {
-	var accept = accepts(req);
-	res.status(404);
+// app.use(function(req, res, next) {
+// 	var accept = accepts(req);
+// 	res.status(404);
 
-	// respond with html page
-	if (accept.types('html')) {
-		res.render('error', { url: req.url, status: 404 });
-		return;
-	}
+// 	// respond with html page
+// 	if (accept.types('html')) {
+// 		res.render('error', { url: req.url, status: 404 });
+// 		return;
+// 	}
 
-	// respond with json
-	if (accept.types('json')) {
-			res.send({
-			error: {
-				status: 'Not found'
-			}
-		});
-		return;
-	}
+// 	// respond with json
+// 	if (accept.types('json')) {
+// 			res.send({
+// 			error: {
+// 				status: 'Not found'
+// 			}
+// 		});
+// 		return;
+// 	}
 
-	// default to plain-text
-	res.type('txt').send('Not found');
-});
+// 	// default to plain-text
+// 	res.type('txt').send('Not found');
+// });
 
-app.use(function(err, req, res, next) {
-	var status = err.status || 500;
+// app.use(function(err, req, res, next) {
+// 	var status = err.status || 500;
 
-	res.status(status);
-	res.render('error', { error: err, status: status });
-});
+// 	res.status(status);
+// 	res.render('error', { error: err, status: status });
+// });
 
 
 // ------------------------

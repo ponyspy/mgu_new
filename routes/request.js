@@ -2,6 +2,8 @@ var path = require('path');
 var nodemailer = require('nodemailer');
 var jade = require('jade');
 
+var Request = require('../models/main.js').Request;
+
 var __appdir = path.dirname(require.main.filename);
 
 transporter = nodemailer.createTransport({
@@ -23,6 +25,7 @@ exports.free = function(req, res) {
 }
 
 exports.free_form = function(req, res) {
+
 	var params = {
 		user: req.session.user_id,
 		level: req.body.level,
@@ -36,8 +39,10 @@ exports.free_form = function(req, res) {
 		html: jade.renderFile(__appdir + '/views/mail/free.jade', {params: params})
 	}
 
-	transporter.sendMail(opts, function(err, info) {
-		res.redirect('/request');
+	Request.create({type: 'free', user: params.user, level: params.level, time: params.time}, function(err, request) {
+		transporter.sendMail(opts, function(err, info) {
+			res.redirect('/request');
+		});
 	});
 }
 
@@ -50,7 +55,7 @@ exports.course_form = function(req, res) {
 
 	var params = {
 		user: req.session.user_id,
-		type: req.body.type
+		subscribe: req.body.subscribe
 	}
 
 	var opts = {
@@ -74,7 +79,9 @@ exports.course_form = function(req, res) {
 		]
 	}
 
-	transporter.sendMail(opts, function(err, info) {
-		res.redirect('/request');
+	Request.create({type: 'course', user: params.user, subscribe: params.subscribe}, function(err, request) {
+		transporter.sendMail(opts, function(err, info) {
+			res.redirect('/request');
+		});
 	});
 }

@@ -1,0 +1,24 @@
+extends ../../layout
+
+block title
+	title СПИСОК ЗАЯВОК
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/lists.js')
+
+block content
+	a.back_link(href='/auth') < Назад
+	.title СПИСОК ЗАЯВОК
+	br
+	.main_menu_block
+		//- a(href='/auth/lessons/courses/' + user._id + '/add') добавить пользователя
+		br
+		br
+		each request in requests
+			.request
+				a.rm_request(href='#', id=request._id)= 'удалить '
+				!=' | '
+				a(href='/auth/requests/' + request._id)= request.type + ' (' + ('0' + request.date.getDate()).slice(-2) + '.' + ('0' + (request.date.getMonth() + 1)).slice(-2) + '.' + ('0' + request.date.getFullYear()).slice(-2) + ')'

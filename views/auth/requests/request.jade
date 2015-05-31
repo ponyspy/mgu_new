@@ -1,0 +1,31 @@
+extends ../../layout
+
+block title
+	title ЗАЯВКА
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/add.js')
+
+block content
+	a.back_link(href='/auth/requests') < Назад
+	.title ЗАЯВКА
+	br
+	.form_title Дата
+	p= ('0' + request.date.getDate()).slice(-2) + '.' + ('0' + (request.date.getMonth() + 1)).slice(-2) + '.' + ('0' + request.date.getFullYear()).slice(-2)
+	.form_title Тип
+	if request.type == 'free'
+		b= 'Бесплатное занятие'
+		p= request.time
+		p= request.level
+	if request.type == 'course'
+		b= 'Курс'
+		p= request.subscribe
+	.form_title Пользователь
+	p= request.user.name.first + ' ' + request.user.name.last
+	.form_title e-mail
+	p= request.user.email
+	.form_title Skype
+	p= request.user.skype
