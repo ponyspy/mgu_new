@@ -7,6 +7,8 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
+			- var texts = ['шка́ф', 'крова́ть', 'телеви́зор', 'сто́л', 'карти́на', 'ко́мната', 'ла́мпа', 'окно́', 'миниба́р', 'вино́', 'пи́во', 'ду́ш']
+			include ../../types/text.jade
 			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
 			include ../../types/image.jade
 

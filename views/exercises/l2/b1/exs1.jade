@@ -7,6 +7,8 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
+			- var texts = ['евро́ппа', 'а́зия', 'а́фрика', 'австра́лия', 'се́верная аме́рика', 'ю́жная аме́рика', 'антаркти́да']
+			include ../../types/text.jade
 			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
 			include ../../types/image.jade
 

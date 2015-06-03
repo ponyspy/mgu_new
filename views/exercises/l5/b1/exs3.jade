@@ -2,11 +2,13 @@ extends ../../index.jade
 
 block vars
 	- var task = 'Listen, repeat, read:'
-	- var items = 5
+	- var items = 9
 
 block columns
 	.exercise_column
 		.exercise_blocks_block
+			- var texts = ['дли́нные во́лосы',  'коро́ткие во́лосы', 'широ́кая река́', 'у́зкая река́', 'высо́кий дом', 'невысо́кий до́м', 'знако́мый', 'знако́мая']
+			include ../../types/text.jade
 			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
 			include ../../types/image.jade
 
