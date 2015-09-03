@@ -152,8 +152,17 @@ app.route('/lang/:locale').get(main.locale);
 // === Courses Route
 app.route('/courses').get(courses.index);
 
-// === Course Route
-app.route('/courses/:id').get(courses.course);
+// === Course speak russian
+app.route('/courses/speak-russian').get(courses.speak_russian);
+
+// === Course phonetic
+app.route('/courses/phonetic').get(courses.phonetic);
+
+
+
+
+
+
 
 // === Exercise words Route
 app.route('/exercise/words').get(exercises.words);

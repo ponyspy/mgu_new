@@ -1,10 +1,10 @@
 extends ../layout
 
 block paths
-	- var s_title = 'Courses › ' + course.i18n.title.get('ru')
+	- var s_title = 'Courses › ' + 'Время говорить по-русски'
 
 block title
-	title= 'COURSE | ' + course.i18n.title.get('ru').toUpperCase()
+	title= 'COURSE | ' + 'Время говорить по-русски'.toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/course.css' + version)
@@ -19,8 +19,7 @@ block content_scripts
 
 
 block navigate
-	- var lessons = course.lessons
-	include ../navigate.jade
+	include ../navigate/speak_russian.jade
 
 
 block content
