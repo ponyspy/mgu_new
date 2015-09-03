@@ -14,7 +14,8 @@ $(document).ready(function() {
 
 		if ($(this).data('clicked')) {
 			var lesson = $(this).index();
-			$.post('/demo_get_lesson', {lesson: ++lesson}).done(function(lesson) {
+			var course = $(this).parent('.circles').attr('class').split(' ')[1]
+			$.post('/demo_get_lesson', {course: course, lesson: ++lesson}).done(function(lesson) {
 				$('.lesson_navigator_inner').empty().append(lesson).promise().done(function() {
 					$('.lesson_navigator_inner').stop().slideDown(300);
 					$('.lesson_navigator_inner').css('border-bottom', '1px solid black');
