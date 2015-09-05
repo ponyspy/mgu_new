@@ -17,6 +17,7 @@ block content_scripts
 
 block content
 	.courses
+
 		.courses_item
 			a.course_title(href='/courses/speak-russian') Время говорить по-русски
 			.course_lessons
@@ -26,6 +27,7 @@ block content
 					a.circle(href='/courses/' + 'speak-russian' + '#3', l_title='Lesson 3', l_fail='50', l_success='50')
 					a.circle(href='/courses/' + 'speak-russian' + '#4', l_title='Lesson 4', l_fail='50', l_success='50')
 					a.circle(href='/courses/' + 'speak-russian' + '#5', l_title='Lesson 5', l_fail='50', l_success='50')
+
 		.courses_item
 			a.course_title(href='/courses/phonetic') Phonetics. Introduction
 			.course_lessons
@@ -35,3 +37,14 @@ block content
 					a.circle(href='/courses/' + 'phonetic' + '#3', l_title='Lesson 3', l_fail='50', l_success='50')
 					a.circle(href='/courses/' + 'phonetic' + '#4', l_title='Lesson 4', l_fail='50', l_success='50')
 					a.circle(href='/courses/' + 'phonetic' + '#5', l_title='Lesson 5', l_fail='50', l_success='50')
+
+		.courses_item
+			a.course_title(href='/courses/gram') Grammar
+			.course_lessons
+				.circles
+					a.circle(href='/courses/' + 'gram' + '#1', l_title='Nouns', l_fail='50', l_success='50')
+					a.circle(href='/courses/' + 'gram' + '#2', l_title='Pronouns', l_fail='50', l_success='50')
+					a.circle(href='/courses/' + 'gram' + '#3', l_title='Adjectives', l_fail='50', l_success='50')
+					a.circle(href='/courses/' + 'gram' + '#4', l_title='Verbs', l_fail='50', l_success='50')
+					a.circle(href='/courses/' + 'gram' + '#5', l_title='Adverbs', l_fail='50', l_success='50')
+					a.circle(href='/courses/' + 'gram' + '#6', l_title='Numerals', l_fail='50', l_success='50')

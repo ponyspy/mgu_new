@@ -158,7 +158,8 @@ app.route('/courses/speak-russian').get(courses.speak_russian);
 // === Course phonetic
 app.route('/courses/phonetic').get(courses.phonetic);
 
-
+// === Course gram
+app.route('/courses/gram').get(courses.gram);
 
 
 

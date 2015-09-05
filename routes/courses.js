@@ -11,3 +11,7 @@ exports.speak_russian = function(req, res) {
 exports.phonetic = function(req, res) {
 	res.render('courses/phonetic.jade');
 }
+
+exports.gram = function(req, res) {
+	res.render('courses/gram.jade');
+}
