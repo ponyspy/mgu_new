@@ -1,0 +1,18 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Выучите новые слова'
+	- var items = 19
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['бага́ж', 'чемода́н', 'рюкза́к', 'су́мка', 'мо́й', 'мо́я', 'моё́', 'мои́', 'моя́ су́мка', 'мо́й чемода́н', 'ва́ш', 'ва́ша', 'ва́ше', 'ва́ши', 'ва́ш чемода́н', 'ва́ша су́мка', 'вхо́д', 'вы́ход']
+			include ../../../types/text.jade
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			include ../../../types/image.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade

@@ -1,0 +1,16 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Put words together to make a phrase:'
+	- var items = 9
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var sortable = [['Мне', 'нравится', 'это', 'вино.'], ['Нам', 'нравятся', 'эти', 'закуски', 'и', 'салаты.'], ['Ей', 'нравятся', 'закуски.'], ['Тебе', 'нравится', 'этот', 'салат?'], ['Им', 'нравятся', 'фрукты.']]
+			include ../../../types/sort.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			//- include ../../../types/audio.jade

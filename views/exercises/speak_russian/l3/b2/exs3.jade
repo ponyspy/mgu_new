@@ -1,0 +1,18 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen, repeat, and read words:'
+	- var items = 15
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['Вещи не мои.', 'У вас есть душ?', 'Всё хорошо.', 'Кто говорит?', 'Что вы говорите?', 'Как дела?', 'Чей это кофе?', 'Вы понимаете?', 'Что ты хочешь?', 'Я знаю, что ты там.', 'У меня тоже есть билет.', 'Они не хотят кофе.', 'У неё есть хорошее вино.', 'Они сейчас в кафе.', 'У них всё в порядке.', 'Я не знаю, какая это улица.']
+			include ../../../types/text.jade
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			//- include ../../../types/audio.jade

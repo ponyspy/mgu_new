@@ -1,0 +1,17 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen to the audio and click on the sentence that was just played.'
+	- var items = 9
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var questions = [{'qs': ['Извините, что вы хотите?', 'Извини, что ты хочешь?'], 'answer': 1}, {'qs': ['Ты понимаешь его?', 'Ты понимаешь её?'], 'answer': 0}, {'qs': ['Какие там девушки?', 'Какие там вещи?'], 'answer': 0}, {'qs': ['Кафе вон там.', 'Вон твой кофе.'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 1}]
+			include ../../../types/question.jade

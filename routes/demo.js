@@ -28,7 +28,7 @@ exports.get_exercise = function(req, res) {
 
 	var path = meta.lesson + '/' + meta.block + '/' + meta.set;
 
-	var html = jade.renderFile(appDir + '/views/exercises/' + path + '.jade', {ex_path: path, ex_set: ex_set, select: select});
+	var html = jade.renderFile(appDir + '/views/exercises/' + req.body.course + '/' + path + '.jade', {ex_path: path, ex_set: ex_set, select: select});
 	res.send(html);
 }
 

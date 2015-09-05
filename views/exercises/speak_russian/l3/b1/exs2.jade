@@ -1,0 +1,18 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen, repeat, read:'
+	- var items = 14
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['больши́е де́ти', 'ма́ленькие де́ти', 'но́вый го́род', 'ста́рый го́род', 'горя́чая вода́', 'холо́дная вода́', 'удо́бное кре́сло', 'неудо́бное кре́сло', 'краси́вый до́м', 'некраси́вый до́м', 'ста́рый челове́к', 'молодо́й челове́к', 'хоро́шая фотогра́фия', 'плоха́я фотогра́фия']
+			include ../../../types/text.jade
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			include ../../../types/image.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade

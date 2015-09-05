@@ -1,0 +1,16 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Find the right word to match a picture:'
+	- var items = 1
+	- var words = [{'word':'аэропорт', 'position': 1}, {'word':'музыкант', 'position': 2}, {'word':'паспорт', 'position': 3}, {'word':'виза', 'position': 4}, {'word':'телефон', 'position': 5}, {'word':'турист', 'position': 6}, {'word':'студент', 'position': 7}, {'word':'ключ', 'position': 8}]
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/'
+			include ../../../types/drag.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- include types/audio.jade

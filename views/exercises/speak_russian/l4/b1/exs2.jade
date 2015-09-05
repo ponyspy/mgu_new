@@ -1,0 +1,16 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Find the right word to match a picture:'
+	- var items = 1
+	- var words = [{'word':'апельсиновый сок', 'position': 1}, {'word':'бутерброд', 'position': 2}, {'word':'красная икра и блины', 'position': 3}, {'word':'борщ', 'position': 4}, {'word':'кекс', 'position': 5}, {'word':'салат', 'position': 6}, {'word':'пельмени', 'position': 7}, {'word':'омлет', 'position': 8}, {'word':'рыба', 'position': 9}]
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/'
+			include ../../../types/drag.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- include types/audio.jade

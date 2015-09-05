@@ -14,7 +14,8 @@ $(document).ready(function() {
 
 		if ($(this).data('clicked')) {
 			var lesson = $(this).index();
-			var course = $(this).parent('.circles').attr('class').split(' ')[1]
+			var course = $(this).closest('.lessons_block').attr('class').split(' ')[1];
+
 			$.post('/demo_get_lesson', {course: course, lesson: ++lesson}).done(function(lesson) {
 				$('.lesson_navigator_inner').empty().append(lesson).promise().done(function() {
 					$('.lesson_navigator_inner').stop().slideDown(300);
@@ -31,8 +32,9 @@ $(document).ready(function() {
 
 	$(document).on('click', '.set_item.exercise', function(event) {
 		var hash = $(this).attr('class').split(' ')[2];
+		var course = $('.lessons_block').attr('class').split(' ')[1];
 
-		$.post('/demo_get_exercise', {hash: hash, select: 1}).done(function(data) {
+		$.post('/demo_get_exercise', {course: course, hash: hash, select: 1}).done(function(data) {
 			$('.content_block').empty().append(data).attr('class', 'content_block').addClass(hash);
 			$('.ex_item').eq(0).addClass('select');
 			$('.lesson_navigator_inner').stop().slideUp(300);

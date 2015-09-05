@@ -1,0 +1,17 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen to the audio and click on the sentence that was just played.'
+	- var items = 5
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var questions = [{'qs': ['У меня удобный номер.', 'У тебя удобный номер.'], 'answer': 0}, {'qs': ['У них есть билеты.', 'У нас есть билеты.'], 'answer': 1}, {'qs': ['Ты знаешь этот дом?', 'Он знает этот дом?'], 'answer': 0}, {'qs': ['У неё есть красная машина.', 'У него есть красная машина.'], 'answer': 1}, {'qs': ['Здесь всё красивое.', 'Здесь всё красное.'], 'answer': 0}]
+			include ../../../types/question_mute.jade

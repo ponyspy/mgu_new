@@ -1,0 +1,16 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Divide words into groups:'
+	- var items = 1
+	- var words = [{'word':'Ле́в Бори́сович', 'position': 1}, {'word':'Жена́ Викто́рия', 'position': 2}, {'word':'Сы́н Ко́ля', 'position': 3}, {'word':'До́чка Га́ля', 'position': 4}, {'word':'Бра́т Андре́й', 'position': 5}]
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/images/exercises/' + ex_path + '/'
+			include ../../../types/drag.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			//- include types/audio.jade

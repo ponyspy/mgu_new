@@ -1,0 +1,18 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen, repeat, and read words:'
+	- var items = 14
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['Что это? Это кровать.', 'Где кровать? Кровать в комнате.', 'Что это? Это телевизор.', 'Где телевизор? Телевизор на столе.', 'Что это? Это лампа.', 'Где лампа? Лампа тоже на столе.', 'Что это? Это цветы.', 'Где цветы? Цвет на окне.', 'Что это? Это пиво.', 'Где пиво? Пиво на окне.', 'Что это? Это бутылки.', 'Где бутылки? Бутылки в мини-баре', 'Что это? Это шляпа.', 'Где шляпа? Шляпа в шкафу.']
+			include ../../../types/text.jade
+			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			include ../../../types/image.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade

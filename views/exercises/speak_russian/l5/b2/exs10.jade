@@ -1,0 +1,17 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Select the correct expression:'
+	- var items = 6
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var questions = [{'qs': ['Ты понимаешь меня?', 'Ты помнишь меня?'], 'answer': 0}, {'qs': ['Мне надо платить за завтрак.', 'Им надо платить за завтрак.'], 'answer': 0}, {'qs': ['Это не наш счёт.', 'Вот ваш счёт.'], 'answer': 1}, {'qs': ['Сколько стоит твой обед?', 'Сколько стоит твой номер?'], 'answer': 0}, {'qs': ['Я позвоню тебе вечером.', 'Ты позвонил мне вечером.'], 'answer': 0}, {'qs': ['Расскажи мне о проблеме.', 'Скажи мне, это правда?'], 'answer': 1}, {'qs': ['Сколько стоит мой завтрак?', 'Сколько стоил мой завтрак?'], 'answer': 1}, {'qs': ['Дайте мне его счёт.', 'Дайте мне мой счёт.'], 'answer': 0}, {'qs': ['Хочу рассказать тебе о ней.', 'Не хочу рассказать тебе о ней.'], 'answer': 0}, {'qs': ['Извините, вы не можете.', 'Извини, я не могу.'], 'answer': 1}]
+			include ../../../types/question_mute.jade
