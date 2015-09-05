@@ -1,0 +1,16 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen and repeat'
+	- var items = 17
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var questions = [{'qs': ['ПА-БА', 'ПО-БО', 'ПУ-БУ', 'ПЫ-БЫ'], 'answer': 0}, {'qs': ['ПА-БА', 'ПО-БО', 'ПУ-БУ', 'ПЫ-БЫ'], 'answer': 1}, {'qs': ['ПА-БА', 'ПО-БО', 'ПУ-БУ', 'ПЫ-БЫ'], 'answer': 2}, {'qs': ['ПА-БА', 'ПО-БО', 'ПУ-БУ', 'ПЫ-БЫ'], 'answer': 3}, {'qs': ['ФА-ВА', 'ФО-ВО', 'ФУ-ВУ', 'ФЫ-ВЫ'], 'answer': 0}, {'qs': ['ФА-ВА', 'ФО-ВО', 'ФУ-ВУ', 'ФЫ-ВЫ'], 'answer': 1}, {'qs': ['ФА-ВА', 'ФО-ВО', 'ФУ-ВУ', 'ФЫ-ВЫ'], 'answer': 2}, {'qs': ['ФА-ВА', 'ФО-ВО', 'ФУ-ВУ', 'ФЫ-ВЫ'], 'answer': 3}, {'qs': ['ТА-ДА', 'ТО-ДО', 'ТУ-ДУ', 'ТЫ-ДЫ'], 'answer': 0}, {'qs': ['ТА-ДА', 'ТО-ДО', 'ТУ-ДУ', 'ТЫ-ДЫ'], 'answer': 1}, {'qs': ['ТА-ДА', 'ТО-ДО', 'ТУ-ДУ', 'ТЫ-ДЫ'], 'answer': 2}, {'qs': ['ТА-ДА', 'ТО-ДО', 'ТУ-ДУ', 'ТЫ-ДЫ'], 'answer': 3}, {'qs': ['СА-ЗА', 'СО-ЗО', 'СУ-ЗУ', 'СЫ-ЗЫ'], 'answer': 0}, {'qs': ['СА-ЗА', 'СО-ЗО', 'СУ-ЗУ', 'СЫ-ЗЫ'], 'answer': 1}, {'qs': ['СА-ЗА', 'СО-ЗО', 'СУ-ЗУ', 'СЫ-ЗЫ'], 'answer': 2}, {'qs': ['СА-ЗА', 'СО-ЗО', 'СУ-ЗУ', 'СЫ-ЗЫ'], 'answer': 3}]
+			include ../../../types/question_mute.jade

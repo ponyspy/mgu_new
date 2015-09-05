@@ -7,7 +7,7 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/video/' + ex_path + '/' + ('0' + select).slice(-2) + '.mp4'
+			- var path = '/video/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.mp4'
 			include ../../../types/video.jade
 
 	.exercise_column
