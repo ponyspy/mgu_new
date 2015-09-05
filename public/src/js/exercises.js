@@ -5,8 +5,9 @@ $(document).ready(function() {
 	$(document).on('click', '.step_forward', function(event) {
 		var hash = $('.content_block').attr('class').split(' ')[1];
 		var select = $('.ex_item.select').next().index();
+		var course = $('.lessons_block').attr('class').split(' ')[1];
 
-		$.post('/demo_get_exercise', {hash: hash, ex_set: 'none', select: ++select}, function(data) {
+		$.post('/demo_get_exercise', {course: course, hash: hash, ex_set: 'none', select: ++select}, function(data) {
 			$('.exercise_columns_block').empty().append(data);
 		});
 		$('.ex_item').removeClass('select').eq(--select).addClass('select').css('color', 'green');

@@ -18,6 +18,7 @@ exports.get_exercise = function(req, res) {
 	var select = req.body.select;
 	var ex_set = req.body.ex_set == 'none' ? false : true;
 	var exercise = hash.split('_');
+	var course = req.body.course;
 
 	var meta = {
 		lesson: exercise[0],
@@ -28,13 +29,14 @@ exports.get_exercise = function(req, res) {
 
 	var path = meta.lesson + '/' + meta.block + '/' + meta.set;
 
-	var html = jade.renderFile(appDir + '/views/exercises/' + req.body.course + '/' + path + '.jade', {ex_path: path, ex_set: ex_set, select: select});
+	var html = jade.renderFile(appDir + '/views/exercises/' + req.body.course + '/' + path + '.jade', {course: course, ex_path: path, ex_set: ex_set, select: select});
 	res.send(html);
 }
 
 exports.get_grammar = function(req, res) {
 	var hash = req.body.hash;
 	var grammar = hash.split('_');
+	var course = req.body.course;
 
 	var meta = {
 		lesson: grammar[0],
@@ -45,6 +47,6 @@ exports.get_grammar = function(req, res) {
 
 	var path = meta.lesson + '/' + meta.block + '/' + meta.set;
 
-	var html = jade.renderFile(appDir + '/views/text/grammar/' + path + '.jade');
+	var html = jade.renderFile(appDir + '/views/text/' + course + '/grammar/' + path + '.jade', {course: course});
 	res.send(html);
 }

@@ -9,10 +9,10 @@ block columns
 		.exercise_blocks_block
 			- var texts = ['извини́те', 'прости́те', 'спаси́бо', 'большо́е спаси́бо', 'сле́ва', 'нет, не...', 'Нет, не ме́неджер.', 'Нет, не студе́нтка.', 'Нет, я не инжене́р.', 'А вы?', 'Я тури́ст. А вы?', 'там', 'Бага́ж там.', 'ещё']
 			include ../../../types/text.jade
-			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			include ../../../types/audio.jade
 
 	.exercise_column
 		.exercise_blocks_block
-			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			//- - var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			//- include ../../../types/audio.jade

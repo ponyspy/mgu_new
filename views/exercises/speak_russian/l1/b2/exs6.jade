@@ -7,12 +7,12 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			- var path = '/images/' + course + '/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
 			include ../../../types/image.jade
 			- var sortable = [['Жур', 'на', 'лист', 'ка'], ['Нет,', 'я', 'не', 'инженер']]
 			include ../../../types/sort.jade
 
 	.exercise_column
 		.exercise_blocks_block
-			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			//- - var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			//- include ../../../types/audio.jade

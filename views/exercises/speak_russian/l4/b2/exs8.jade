@@ -7,11 +7,11 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/video/' + ex_path + '/' + ('0' + select).slice(-2) + '.mp4'
+			- var path = '/video/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.mp4'
 			include ../../../types/video.jade
 
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			- var questions = [{'qs': ['Спасибо, у меня есть проблема.', 'Спасибо, плохо.', 'Спасибо, у меня всё хорошо.'], 'answer': 2}, {'qs': ['Я не люблю пиво.', 'Сначала дайте пиво «Балтика».', 'На гарнир, пожалуйста, картошку.'], 'answer': 1}, {'qs': ['Что случилось?', 'Где твоя мама?', 'Какой у тебя заказ?'], 'answer': 0}]
 			include ../../../types/question_mute.jade

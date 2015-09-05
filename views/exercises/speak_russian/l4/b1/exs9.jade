@@ -7,11 +7,11 @@ block vars
 block columns
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/images/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
+			- var path = '/images/' + course + '/exercises/' + ex_path + '/' + ('0' + select).slice(-2) + '.png'
 			include ../../../types/image.jade
 
 	.exercise_column
 		.exercise_blocks_block
-			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			- var questions = [{'qs': ['Что вы хотите заказать?', 'Что ты хочешь на завтрак?'], 'answer': 0}, {'qs': ['Что такое кекс?', 'Что такое котлета?'], 'answer': 0}, {'qs': ['Ему на десерт тоже фрукты.', 'Мне на десерт фрукты.'], 'answer': 1}, {'qs': ['У вас есть холодная вода?', 'Ваша вода холодная?'], 'answer': 0}, {'qs': ['Дайте мне бутылку пива.', 'Дайте мне бутылку воды.'], 'answer': 0}, {'qs': ['Это красивое кафе.', 'Это чёрный кофе.'], 'answer': 1}]
 			include ../../../types/question.jade

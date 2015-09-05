@@ -9,10 +9,10 @@ block columns
 		.exercise_blocks_block
 			- var texts = ['тут', 'Паспорт тут', 'что', 'Что это?', 'кто', 'Кто вы?', 'это', 'Это журнал', 'тоже', 'Яблоко тоже тут', 'где', 'Где виза?', 'хорошо', 'пожалуйста', 'вот']
 			include ../../../types/text.jade
-			- var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			include ../../../types/audio.jade
 
 	.exercise_column
 		.exercise_blocks_block
-			//- - var path = '/audio/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			//- - var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
 			//- include ../../../types/audio.jade
