@@ -161,6 +161,11 @@ app.route('/courses/phonetic').get(courses.phonetic);
 // === Course gram
 app.route('/courses/gram').get(courses.gram);
 
+// === Course listening
+app.route('/courses/listening').get(courses.listening);
+
+// === Course reading
+app.route('/courses/reading').get(courses.reading);
 
 
 

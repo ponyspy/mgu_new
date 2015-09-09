@@ -16,6 +16,21 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/course.js' + version)
 
 
+block navigate
+	.stat_panel
+		.stat_list_block
+			.list_title Список курсов:
+			.list_items
+				.list_item Время говорить по-русски
+				.list_item Grammar Notes
+				.list_item Phonetic Introduction
+		.stat_list_block
+			.list_title Список студентов:
+			.list_items
+				.list_item John Smith
+				.list_item Mark Twein
+				.list_item Mary Pickford
+
 block content
 	.stat_courses_block
 		.stat_course_block
@@ -23,11 +38,11 @@ block content
 			.course_lessons
 				.lessons_block
 					.circles
-						#lesson1.circle(l_title='Урок 1', l_fail='20', l_success='60')
-						#lesson2.circle(l_title='Урок 2', l_fail='35', l_success='25')
-						#lesson3.circle(l_title='Урок 3', l_fail='50', l_success='40')
-						#lesson4.circle(l_title='Урок 4', l_fail='15', l_success='65')
-						#lesson5.circle(l_title='Урок 5', l_fail='50', l_success='30')
+						#lesson1.circle(l_title='Lesson 1', l_fail='20', l_success='60')
+						#lesson2.circle(l_title='Lesson 2', l_fail='35', l_success='25')
+						#lesson3.circle(l_title='Lesson 3', l_fail='50', l_success='40')
+						#lesson4.circle(l_title='Lesson 4', l_fail='15', l_success='65')
+						#lesson5.circle(l_title='Lesson 5', l_fail='50', l_success='30')
 				.lesson_stat_blocks
 					.stat_block
 						.stat_block_title Грамматика
@@ -56,43 +71,64 @@ block content
 							.exercise_item ●
 							.exercise_item.fail ●
 							.exercise_item ●
+				.lesson_cal_block
+					.cal_items
+						.cal_item.select
+							.item_day Ср
+							.item_date 3 Мая
+						.cal_item
+							.item_day ЧТ
+							.item_date 4 Мая
+						.cal_item.select
+							.item_day ПТ
+							.item_date 5 Мая
+						.cal_item
+							.item_day СБ
+							.item_date 6 Мая
+						.cal_item
+							.item_day ВС
+							.item_date 7 Мая
+					.cal_chat_block
+						.chat_body
+							span.input Студент:
+							span Объясните еще раз, как произносить звук [Ф]
+						.chat_input
+							span.input Преподователь:
+							span В курсе по фоентике Вам надо еще поработать над звуком [Ы]
 
-		//- .stat_course_block
-		//- 	.course_title Другой курс
-		//- 	.course_lessons
-		//- 		.lessons_block
-		//- 			.circles
-		//- 				#lesson1.circle(l_title='Урок 1', l_fail='20', l_success='60')
-		//- 				#lesson2.circle(l_title='Урок 2', l_fail='35', l_success='25')
-		//- 				#lesson3.circle(l_title='Урок 3', l_fail='50', l_success='40')
-		//- 				#lesson4.circle(l_title='Урок 4', l_fail='15', l_success='65')
-		//- 				#lesson5.circle(l_title='Урок 5', l_fail='50', l_success='30')
-		//- 				#lesson6.circle(l_title='Урок 6', l_fail='50', l_success='40')
-		//- 				#lesson7.circle(l_title='Урок 7', l_fail='15', l_success='65')
-		//- 				#lesson8.circle(l_title='Урок 8', l_fail='50', l_success='30')
-		//- 		.lesson_stat_blocks
-		//- 			.stat_block
-		//- 				.stat_block_title Грамматика
-		//- 				.stat_block_exercises
-		//- 					.exercise_item ●
-		//- 					.exercise_item ●
-		//- 					.exercise_item.fail ●
-		//- 					.exercise_item ●
-		//- 					.exercise_item ●
-		//- 					.exercise_item.fail ●
-		//- 					.exercise_item ●
-		//- 					.exercise_item ●
+		.stat_course_block
+			.course_title Phonetic Introduction
+			.course_lessons
+				.lessons_block
+					.circles
+						#lesson1.circle(l_title='Lesson 1', l_fail='20', l_success='60')
+						#lesson2.circle(l_title='Lesson 2', l_fail='35', l_success='25')
+						#lesson3.circle(l_title='Lesson 3', l_fail='50', l_success='40')
+						#lesson4.circle(l_title='Lesson 4', l_fail='15', l_success='65')
+						#lesson5.circle(l_title='Lesson 5', l_fail='50', l_success='30')
+				.lesson_stat_blocks
+					.stat_block
+						.stat_block_title Vowels
+						.stat_block_exercises
+							.exercise_item ●
+							.exercise_item ●
+							.exercise_item.fail ●
+							.exercise_item ●
+							.exercise_item ●
+							.exercise_item.fail ●
+							.exercise_item ●
+							.exercise_item ●
 
-		//- 			.stat_block
-		//- 				.stat_block_title Письмо
-		//- 				.stat_block_exercises
-		//- 					.exercise_item.fail ●
-		//- 					.exercise_item ●
-		//- 					.exercise_item ●
+					.stat_block
+						.stat_block_title Hard Consonants
+						.stat_block_exercises
+							.exercise_item.fail ●
+							.exercise_item ●
+							.exercise_item ●
 
-		//- 			.stat_block
-		//- 				.stat_block_title Лексика
-		//- 				.stat_block_exercises
-		//- 					.exercise_item ●
-		//- 					.exercise_item.fail ●
-		//- 					.exercise_item ●
+					.stat_block
+						.stat_block_title Syllables
+						.stat_block_exercises
+							.exercise_item ●
+							.exercise_item.fail ●
+							.exercise_item ●

@@ -1,0 +1,11 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Words'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			if (select == 1)
+				include ../../../../text/listening/exercises/l1/b2/exs1/01.jade

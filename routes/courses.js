@@ -15,3 +15,11 @@ exports.phonetic = function(req, res) {
 exports.gram = function(req, res) {
 	res.render('courses/gram.jade');
 }
+
+exports.listening = function(req, res) {
+	res.render('courses/listening.jade');
+}
+
+exports.reading = function(req, res) {
+	res.render('courses/reading.jade');
+}

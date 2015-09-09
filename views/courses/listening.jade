@@ -1,0 +1,29 @@
+extends ../layout
+
+block paths
+	- var s_title = 'Courses › ' + 'Listening'
+
+block title
+	title= 'COURSE | ' + 'Listening'.toUpperCase()
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/course.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/exercises.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/libs/js/raphael-min.js' + version)
+	script(type='text/javascript', src='/build/js/circles.js' + version)
+	script(type='text/javascript', src='/build/js/course.js' + version)
+	script(type='text/javascript', src='/build/libs/js/jquery-ui.min.js' + version)
+	script(type='text/javascript', src='/build/js/exercises.js' + version)
+
+
+block navigate
+	include ../navigate/listening.jade
+
+
+block content
+	.course_description_block
+		h3 Listening
+		p The Listening course consists of audio texts on different topics, but mostly includes situations of everyday communication.
+		p The course includes audio materials for learners with different levels of knowledge of the Russian language, from A1 to B2.Each audio record is accompanied by exercises that can be completed by a student independently or with a teacher

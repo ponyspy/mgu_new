@@ -1,10 +1,10 @@
 extends ../layout
 
 block paths
-	- var s_title = 'главная'
+	- var s_title = 'платформа создания и размещения учебных дистанционных курсов'
 
 block title
-	title Главная!
+	title OMNI LINGO
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/main.css' + version)
@@ -13,8 +13,10 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/main.js' + version)
 
 block content
-	h1 Главная
-	a(href='/auth') звездочет
-	br
-	br
-	a(href='/courses') Курсы
+	a(href='/courses')
+		img.back_img(src='/images/design/back.png')
+	//- h1 Главная
+	//- a(href='/auth') звездочет
+	//- br
+	//- br
+	//- a(href='/courses') Курсы

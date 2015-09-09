@@ -1,0 +1,13 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen words and phrases and repeat them.'
+	- var items = 15
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['столица', 'вот столица', 'Санкт-Петербург', 'Владивосток', 'Сочи', 'Москва-река', 'тут, тут слева', 'справа, справа аэропорт', 'музей', 'Кремль', 'там, вон там, вон там река', 'что это, а что это?', 'улица', 'банк, там банк']
+			include ../../../types/text.jade
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade

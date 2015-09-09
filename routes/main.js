@@ -1,6 +1,6 @@
 exports.index = function(req, res) {
-  // res.render('main');
-  res.redirect('/courses');
+  res.render('main');
+  // res.redirect('/courses');
 }
 
 exports.locale = function(req, res) {
