@@ -1,0 +1,11 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen and repeat'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var video_id = 'D1v-Uv6Zc5s'
+			include ../../../types/youtube.jade
