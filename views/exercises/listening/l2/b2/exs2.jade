@@ -1,0 +1,13 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen words and phrases and repeat them.'
+	- var items = 15
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['девятиэтажный, дом девятиэтажный', 'код, набирать код, набирать номер, кодовый замок', 'подъезд, последний подъезд, пятый подъезд, вход в подъезд, вход в подъезд с улицы', 'решётка, решётка справа, решётка справа внизу', 'звёздочка, звёздочка слева, звёздочка слева внизу', 'кнопка, нажать кнопку', 'подниматься, подниматься в квартиру, пониматься на лифте, поднимайся!']
+			include ../../../types/text.jade
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade

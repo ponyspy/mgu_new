@@ -1,0 +1,16 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Answer the question'
+	- var items = 9
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var texts = ['Станция метро, где буква «Н»?', 'Вход справа?', 'Выход справа?', 'Билеты там, где касса?', 'Касса в метро?']
+			include ../../../types/text.jade
+
+	.exercise_column
+		.exercise_blocks_block
+			- var questions = [{'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 1}, {'qs': ['Да', 'Нет'], 'answer': 0}, {'qs': ['Да', 'Нет'], 'answer': 0}, {'qs': ['Да', 'Нет'], 'answer': 0}]
+			include ../../../types/question_mute.jade

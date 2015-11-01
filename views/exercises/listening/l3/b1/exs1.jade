@@ -1,0 +1,11 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Listen the audiotext.'
+	- var items = 5
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			- var path = '/audio/' + course + '/' + ex_path + '/' + ('0' + select).slice(-2) + '.m4a'
+			include ../../../types/audio.jade
