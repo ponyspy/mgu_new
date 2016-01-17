@@ -1,0 +1,11 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Москва, центр'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			if (select == 1)
+				include ../../../../text/reading/exercises/l1/b3/exs1/01.jade
