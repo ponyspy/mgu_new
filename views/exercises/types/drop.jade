@@ -1,7 +1,2 @@
-.exercise_block(class='drop_words')
-	| Вот моя репа, у
-	select.list(answer='нее')
-		option(value='него') ...
-		option(value='него') него
-		option(value='нее') нее
-	| все хорошо
+- var list = function(list) { var list = list.replace('{list:', '').replace('}', '').split('|'); return "<select class='list', answer='" + list[0] + "'>" + "<option value=''>...</option>" + list.sort(function() { return .5 - Math.random(); }).map(function(item) { return "<option value='" + item + "'>" + item + "</option>" }).join('') + "</select>" };
+- var item = function(str) { str.match(/{list:\W*}/g).forEach(function(match) { str = str.replace(match, list(match)); }); return str; };

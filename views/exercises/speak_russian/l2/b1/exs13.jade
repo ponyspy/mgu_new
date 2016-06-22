@@ -1,0 +1,24 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Грамматические упражнения'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../../types/drop.jade
+			.exercise_block(class='drop_words')
+
+				if select == 1
+					.drop_items
+						p Выберите правильное окончание.
+						ol
+							li!= item('Вот моя книг{list:а|и|ы}. Здесь мои книг{list:и|а|ы}.')
+							li!= item('Это твоя ручк{list:а|и|ы}.Там твои ручки{list:и|а|ы}.')
+							li!= item('Вот Ирина. Алёна  - её ребёнок, Вася и Петя – тоже её {list:дети|братья|сёстры}.')
+							li!= item('Вот наш город. Там тоже наши город{list:а|и|ы}.')
+							li!= item('Иван – мой друг. Лена и Ольга тоже мои друзь{list:я|и|ы}.')
+							li!= item('Петя – русский. Иван и Анна тоже русски{list:е|и|ы}.')
+							li!= item('Марио – итальянец. Леонардо и  Франко тоже итальянц{list:ы|и|а}.')
+							li!= item('Томас – немец. Густав и Сабрина тоже немц{list:ы|и|а}.')

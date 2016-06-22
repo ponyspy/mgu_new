@@ -1,0 +1,41 @@
+extends ../../../index.jade
+
+block vars
+    - var task = 'Письмо'
+    - var items = 2
+
+block columns
+    .exercise_column
+        .exercise_blocks_block
+            include ../../../types/drop.jade
+            .exercise_block(class='drop_words')
+
+                if select == 1
+                    .drop_items
+                        p Вставьте пропущенные буквы:
+                        ol
+                            li!= item('мен{list:ю|я|а}')
+                            li!= item('за{list:к|п|р}уска')
+                            li!= item('су{list:п|б|р}')
+                            li!= item('р{list:ы|и|е}ба')
+                            li!= item('{list:и|у|ю}кра')
+                            li!= item('к{list:о|у|ю}тлета')
+                            li!= item('б{list:у|о|и}тылка')
+                            li!= item('за{list:в|ф|м}трак')
+                            li!= item('{list:о|у|а}бед')
+                            li!= item('{list:у|о|и}жин')
+
+                if select == 2
+                    .drop_items
+                        p Выберите правильный вариант.
+                        ol
+                            li!= item('Что ты {list:думаешь|думает|думают} ?')
+                            li!= item('Я  {list:работаю|работет|работают}  дома.')
+                            li!= item('Они {list:работают|работаю|работает} в университете.')
+                            li!= item('Мы {list:хотим|хочу|хотят} сейчас работать.')
+                            li!= item('Что ты {list:делаешь|делает|делаем} здесь?')
+                            li!= item('Я не {list:работаю|работает|работают}.')
+                            li!= item('Он не {list:знает|знаешь|знаю} , что такое пельмени.')
+                            li!= item('Я плохо тебя {list:слышу|слышишь|слышат}.')
+                            li!= item('Она не {list:знает|знаешь|знаю}, кто говорит.')
+                            li!= item('Они не {list:слышат|слышишь|слышу}, что я говорю.')

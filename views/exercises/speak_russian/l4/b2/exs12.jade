@@ -1,0 +1,24 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Письмо'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../../types/drop.jade
+			.exercise_block(class='drop_words')
+
+				if select == 1
+					.drop_items
+						p Вставьте пропущенные буквы:
+						ol
+							li!= item('Вкус{list:ое|ая|ый|ие} пи{list:в|ф|р}о')
+							li!= item('Свеж{list:ие|ая|ое|ый} {list:о|у|а}вощи')
+							li!= item('Жарен{list:ая|ый|ое|ие} карто{list:ш|ж|ч}ка')
+							li!= item('Варён{list:ое|ая|ый|ие} м{list:я|а|е}со')
+							li!= item('Cвеж{list:ая|ый|ое|ие} ры{list:б|п|к}а')
+							li!= item('Чёрн{list:ый|ая|ое|ие} к{list:о|у|э}фе')
+							li!= item('Больш{list:ой|ая|ое|ие} {list:з|к|с}аказ')
+							li!= item('Жарен{list:ая|ый|ое|ие} кури{list:ц|з|с}а')

@@ -1,0 +1,20 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Лексические упражнения'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../../types/drop.jade
+			.exercise_block(class='drop_words')
+
+				if select == 1
+					.drop_items
+						p Выберите правильный вариант.
+						ol
+							li!= item('Сейчас ещё 9, это {list:утро|утром}. {list:Утром|Утро} завтрак, потом – работа.')
+							li!= item('Сейчас уже 14.30, это {list:день|днём}. {list:Днём|День} обед, потом – встреча.')
+							li!= item('Сейчас уже 20.15, это {list:вечер|вечером}. {list:Вечером|Вечер} мы дома.')
+							li!= item('Уже 23.20, сейчас {list:ночь|ночью}. Конечно, {list:ночью|ночь} отдых.')
