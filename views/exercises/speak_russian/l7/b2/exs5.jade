@@ -1,0 +1,23 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Письмо'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../../types/drop.jade
+			.exercise_block(class='drop_words')
+
+				if select == 1
+					.drop_items
+						p Выберите правильный вариант.
+						ol
+							li!= item('Ирина ходи {list:ла|л|ли} на спектак {list:ль|ля|ле} в новый теат {list:р|ра|ре}.')
+							li!= item('Сколько времени вы шли от дом {list:а|е|у} до остановк {list:и|а|у|е} трамва {list:я|й|е}?')
+							li!= item('Иван ез {list:дит|жу|дим} каждый день на метро.')
+							li!= item('Вы  часто езд {list:ите|ят|им} в городе на такси?')
+							li!= item('Вчера Ирина ш {list:ла|ёл|ли} на работу пешком.')
+							li!= item('Мы возьм {list:ём|ёте|ут} такси около театр {list:а|у|е}.')
+							li!= item('Тебе нужн {list:а|о|ы} станция метро или остановка автобуса?')
