@@ -1,0 +1,23 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Письмо'
+	- var items = 1
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../../types/drop.jade
+			.exercise_block(class='drop_words')
+
+				if select == 1
+					.drop_items
+						p выберите правильный вариант.
+						ol
+							li!= item('Марина  клад {list:ёт|ём|ёте} телефо {list:н|на|не} в сумк{list: у|а|е}.')
+							li!= item('Мы выбра {list:ли|л|ла} торт с крем {list:ом|ма||ме}.')
+							li!= item('Что ты хоче {list:шь|ет|ят} подари {list:ть|рю|ришь} бра{list:ту|та|те} на день рожденья?')
+							li!= item('Мы долж {list:ны|на|ен} купить что-нибудь на завтрак.')
+							li!= item('Вы мож {list:ете|гут|ем} заплатить за завтра {list:к|ка|ке}?')
+							li!= item('У тебя прекрасн {list:ая|о} идея!')
+							li!= item('Вчера в театр {list:е|а|у} было прекрасн {list:о|ый}!')

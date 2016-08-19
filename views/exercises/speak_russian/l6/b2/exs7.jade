@@ -1,0 +1,24 @@
+extends ../../../index.jade
+
+block vars
+	- var task = 'Грамматические упражнения'
+	- var items = 3
+
+block columns
+	.exercise_column
+		.exercise_blocks_block
+			include ../../../types/drop.jade
+			.exercise_block(class='drop_words')
+
+				if select == 1
+					.drop_items
+						p Допишите слова.
+						ol
+							li!= item('21 руб {list:ль|ля|лей}')
+							li!= item('43 руб {list:ля|ль|лей}')
+							li!= item('38 руб {list:лей|ля|ль}')
+							li!= item('14 доллар {list:ов|а}')
+							li!= item('62 доллар {list:а|ов}')
+							li!= item('300 доллар {list:ов|а}')
+							li!= item('мало врем {list:ени|я}')
+							li!= item('свободное врем {list:я|ени}')
